@@ -6,6 +6,7 @@ Official dataset and resources for the paper: "Predicting Delivery Failures in T
 
 This repository contains the complete R source code, statistical analysis pipeline, and machine learning framework used to generate the synthetic dataset (*N* = 60,000) **and to derive all empirical evaluations, survival benchmarks, and results presented in the paper**: *"Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics"*.
 The codebase is engineered for predictive modeling, delivery failure analysis, inventory depletion tracking, and environmental footprint estimations (CO<sub>2</sub>).
+The resulting dataset is provided in both **CSV** and **Excel (`.xlsx`)** formats for maximum accessibility.
 
 ---
 
