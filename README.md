@@ -4,7 +4,8 @@ Official dataset and resources for the paper: "Predicting Delivery Failures in T
 
 ## Overview
 
-This repository contains the R source code used to generate a realistic, large-scale synthetic dataset (*N* = 60,000) simulating last-mile logistics operations across Italian administrative provinces. The dataset is engineered for predictive modeling, delivery failure analysis, inventory depletion tracking, and environmental footprint estimations (CO<sub>2</sub>).
+This repository contains the complete R source code, statistical analysis pipeline, and machine learning framework used to generate the synthetic dataset (*N* = 60,000) **and to derive all empirical evaluations, survival benchmarks, and results presented in the paper**: *"Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics"*.
+The codebase is engineered for predictive modeling, delivery failure analysis, inventory depletion tracking, and environmental footprint estimations (CO<sub>2</sub>).
 
 ---
 
