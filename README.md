@@ -6,7 +6,7 @@ Official dataset and resources for the paper: "Predicting Delivery Failures in T
 
 This repository contains the complete R source code, statistical analysis pipeline, and machine learning framework used to generate the synthetic dataset (*N* = 60,000) **and to derive all empirical evaluations, survival benchmarks, and results presented in the paper**: *"Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics"*.
 The codebase is engineered for predictive modeling, delivery failure analysis, inventory depletion tracking, and environmental footprint estimations (CO<sub>2</sub>).
-The resulting dataset is provided in both **CSV (`.csv`)** and **Excel (`.xlsx`)** formats within the `data/` directory for maximum accessibility, while all conducted analyses—including descriptive statistics and survival modeling—are fully detailed within the R script files located in the `src/` directory.
+The resulting dataset is provided in both **CSV (`.csv`)** and **Excel (`.xlsx`)** formats within the [`data/`](data/) directory for maximum accessibility, while all conducted analyses—including descriptive statistics and survival modeling (**`01-main.R`**, **`02-synthetic_dataset.R`**, **`03-descriptive_analysis.R`**, **`04-survival_analysis.R`**) —are fully detailed within the R script files located in the [`src/`](src/) directory.
 
 ---
 
@@ -118,7 +118,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   Root cause classification assigned dynamically based on thermal stress conditions, stockouts, ZTL permit status, and operational constraints.
 
 - **`Technical_Installation_Detail`** (*Categorical*)  
-  Detailed failure cause for installation issues (`"None"`, `"electrical/hydraulic system modification required"`, ...).
+  Detailed failure cause for installation issues.
 
 ---
 
@@ -236,12 +236,12 @@ set.seed(1276)
 
 ### 5. Running the Complete Pipeline with Automated Master Script
 To make replication effortless, the project is structured as an automated pipeline orchestrated by a single master script. 
-Open your R project workspace, set it to the root directory of the repository, and execute the **`main.R`** script. 
+Open your R project workspace, set it to the root directory of the repository, and execute the **`01-main.R`** (see [`src/01-main.R`](src/01-main.R)).
 The master script is fully automated: it will automatically check for any missing packages, install them along with their dependencies, set the global random seed, and sequentially orchestrate the entire pipeline:
 
 ```R
 # Execute the complete end-to-end pipeline automatically
-source("main.R")
+source("01-main.R")
 ```
 
 ---
@@ -286,4 +286,15 @@ If you use this dataset, software, or the associated methodology in your researc
   url          = {[https://doi.org/10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXX)}
 }
 ```
+---
+
+## References & Dependencies
+
+This project builds upon established statistical and machine learning methodologies for survival analysis, as well as several open-source R and Python packages. 
+For a complete and detailed list of all theoretical literature and software dependencies used throughout the analysis, please refer to the [REFERENCES.md](REFERENCES.md) file.
+
+
+
+
+
 
