@@ -7,13 +7,57 @@ Official dataset and resources for the paper: "Predicting Delivery Failures in T
 This repository contains the complete R source code, statistical analysis pipeline, and machine learning framework used to generate the synthetic dataset (*N* = 60,000) **and to derive all empirical evaluations, survival benchmarks, and results presented in the paper**: *"Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics"*.
 The codebase is engineered for predictive modeling, delivery failure analysis, inventory depletion tracking, and environmental footprint estimations (CO<sub>2</sub>).
 The resulting dataset is provided in both **CSV (`.csv`)** and **Excel (`.xlsx`)** formats within the [`data/`](data/) directory for maximum accessibility, while all conducted analyses—including descriptive statistics and survival modeling (**`01-main.R`**, **`02-synthetic_dataset.R`**, **`03-descriptive_analysis.R`**, **`04-survival_analysis.R`**) —are fully detailed within the R script files located in the [`src/`](src/) directory.
-* 🎯 **Objective:** This study proposes a proactive predictive framework based on survival analysis to evaluate and mitigate delivery failure risks in last-mile technical courier services, addressing
+* 🎯 **Objective:** This study proposes a dataset and proactive predictive framework based on survival analysis to evaluate and mitigate delivery failure risks in last-mile technical courier services, addressing
 operational inefficiency, elevated costs, and redundant emissions.
    * RQ1. Which factors exert the greatest influence on the occurrence of failed deliveries in technical courier services?
    * RQ2. Are advanced machine learning models capable of accurately predicting the time-dependent risk of delivery failure prior to service execution?
    * RQ3. What extent can predictive analytics enhance the sustainability of logistics operations by reducing failed deliveries and minimizing unnecessary vehicle movements?
 * 🚀 **Target Audience:** Technical courier services, operations managers, supervisors and sector scientists.
 * 💡 **Key Strengths:** This project bridges logistics management and survival analysis by demonstrating how a scalable flat-file survival architecture effectively integrates real-time environmental telemetry and non-linear operational constraints in technical logistics, aiming to reduce carbon emissions and significantly enhance last-mile responsiveness and efficiency.
+
+---
+
+## 📜 License
+
+This repository uses a dual-license structure to separate code from datasets:
+
+- **Source Code** (R/Python scripts for data generation and survival analysis): Licensed under the [MIT License](LICENSE).
+- **Dataset** (Synthetic data for reproducibility): Licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) License.
+
+---
+
+## 💬 How to Cite
+
+If you use this dataset, software, or the associated methodology in your research, please cite both the paper and the repository:
+
+### 1. Academic Article (IJIEOM / Emerald)
+> Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *International Journal of Industrial Engineering and Operations Management*, Emerald Publishing.
+```bibtex
+@article{Garofalo2026Paper,
+  author       = {Nunziato Garofalo},
+  title        = {Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics},
+  journal      = {International Journal of Industrial Engineering and Operations Management},
+  publisher    = {Emerald Publishing},
+  year         = {2026},
+  doi          = {10.1108/IJIEOM-XX-2026-XXXX}
+}
+```
+---
+
+### 2. Dataset & Software Repository (Zenodo / GitHub)
+> Garofalo, N. (2026). *Technical Courier Survival Dataset & Predictive Modeling Framework* (Version 1.0.0) [Data set & Code]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX 
+> Repository source: https://github.com/NunziatoGarofalo/technical-courier-survival-dataset
+```bibtex
+@misc{Garofalo2026Dataset,
+  author       = {Nunziato Garofalo},
+  title        = {Technical Courier Survival Dataset \& Predictive Modeling Framework},
+  year         = {2026},
+  publisher    = {Zenodo},
+  version      = {1.0.0},
+  doi          = {10.5281/zenodo.XXXXXXX},
+  url          = {[https://doi.org/10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXX)}
+}
+```
 
 ---
 
@@ -257,48 +301,6 @@ source("01-main.R")
 This project builds upon established statistical and machine learning methodologies for survival analysis, as well as several open-source R and Python packages. 
 For a complete and detailed list of all theoretical literature and software dependencies used throughout the analysis, please refer to the [REFERENCES.md](REFERENCES.md) file.
 
----
-
-## 📜 License
-
-This repository uses a dual-license structure to separate code from datasets:
-
-- **Source Code** (R/Python scripts for data generation and survival analysis): Licensed under the [MIT License](LICENSE).
-- **Dataset** (Synthetic data for reproducibility): Licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) License.
-
-
-## 💬 How to Cite
-
-If you use this dataset, software, or the associated methodology in your research, please cite both the paper and the repository:
-
-### 1. Academic Article (IJIEOM / Emerald)
-> Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *International Journal of Industrial Engineering and Operations Management*, Emerald Publishing.
-```bibtex
-@article{Garofalo2026Paper,
-  author       = {Nunziato Garofalo},
-  title        = {Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics},
-  journal      = {International Journal of Industrial Engineering and Operations Management},
-  publisher    = {Emerald Publishing},
-  year         = {2026},
-  doi          = {10.1108/IJIEOM-XX-2026-XXXX}
-}
-```
----
-
-### 2. Dataset & Software Repository (Zenodo / GitHub)
-> Garofalo, N. (2026). *Technical Courier Survival Dataset & Predictive Modeling Framework* (Version 1.0.0) [Data set & Code]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX 
-> Repository source: https://github.com/NunziatoGarofalo/technical-courier-survival-dataset
-```bibtex
-@misc{Garofalo2026Dataset,
-  author       = {Nunziato Garofalo},
-  title        = {Technical Courier Survival Dataset \& Predictive Modeling Framework},
-  year         = {2026},
-  publisher    = {Zenodo},
-  version      = {1.0.0},
-  doi          = {10.5281/zenodo.XXXXXXX},
-  url          = {[https://doi.org/10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXX)}
-}
-```
 
 
 
