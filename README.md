@@ -270,7 +270,7 @@ If you use this dataset, software, or the associated methodology in your researc
 ```
 ---
 
-### 2. Dataset & Software Repository (Zenodo & GitHub)
+### 2. Dataset & Software Repository (Zenodo / GitHub)
 > Garofalo, N. (2026). *Technical Courier Survival Dataset & Predictive Modeling Framework* (Version 1.0.0) [Data set & Code]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX 
 > Repository source: https://github.com/NunziatoGarofalo/technical-courier-survival-dataset
 ```bibtex
