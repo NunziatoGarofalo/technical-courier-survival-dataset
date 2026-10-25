@@ -12,7 +12,7 @@ This project relies on open-source software libraries and established statistica
 
 ---
 
-## 2. Regularization & Variable Selection (Lasso, Elastic Net)
+## 2. Statistical Methods for Survival Analysis
 * **Lasso Method**: Tibshirani, R. (1997). The Lasso Method for Variable Selection in the Cox Model. *Statistics in Medicine*, 16(4), 385–395.
 * **Elastic Net**: Zou, H., & Hastie, T. (2005). Regularization and Variable Selection via the Elastic Net. *Journal of the Royal Statistical Society: Series B*, 67(2), 301–320.
 * **Coordinate Descent for Cox Models**: Simon, N., Friedman, J., Hastie, T., & Tibshirani, R. (2011). Regularization Paths for Cox's Proportional Hazards Model via Coordinate Descent. *Journal of Statistical Software*, 39(5), 1–13.
@@ -20,7 +20,7 @@ This project relies on open-source software libraries and established statistica
 
 ---
 
-## 3. Machine Learning & Ensemble Survival Models
+## 3. Machine Learning Methods for Survival Analysis
 * **Random Survival Forests**: Ishwaran, H., Kogalur, U. B., Blackstone, E. H., & Lauer, M. S. (2008). Random Survival Forests. *The Annals of Applied Statistics*, 2(3), 841–860.
 * **Gradient Boosting Machines**: Friedman, J. H. (2001). Greedy function approximation: A gradient boosting machine. *The Annals of Statistics*, 29(5), 1189–1232.
 * **XGBoost Framework**: Chen, T., & Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. *Proceedings of the 22nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining*, 785–794.
@@ -55,7 +55,7 @@ This project relies on open-source software libraries and established statistica
 
 ---
 
-#### 5.2.2. Statistical Survival Analysis & Machine Learning
+#### 5.2.2. Statistical & Machine Learning Models for Survival Analysis
 * **survival**: Therneau TM (2023). *A Package for Survival Analysis in R*. R package version 3.5-7, <https://CRAN.R-project.org/package=survival>.
 * **survminer**: Kassambara A, Kosinski M, Biecek P (2021). *survminer: Drawing Survival Curves using 'ggplot2'*. R package version 0.4.9, <https://CRAN.R-project.org/package=survminer>.
 * **glmnet**: Friedman J, Hastie T, Tibshirani R (2010). *Regularization Paths for Generalized Linear Models via Coordinate Descent*. Journal of Statistical Software, 33(1), 1–22. <https://www.jstatsoft.org/v33/i01/>.
@@ -87,7 +87,5 @@ This project relies on open-source software libraries and established statistica
 * **reticulate**: Ushey K, Allaire JJ, Tang Y (2024). *reticulate: Interface to 'Python'*. R package version 1.38.0, <https://CRAN.R-project.org/package=reticulate>.
 * **pandas**: McKinney W (2010). *Data Structures for Statistical Computing in Python*. Proceedings of the 9th Python in Science Conference, 56–61.
 * **numpy**: Harris CR et al. (2020). *Array programming with NumPy*. Nature, 585(7825), 357–362. <https://doi.org/10.1038/s41586-020-2649-2>.
-
-
 * **matplotlib**: Hunter JD (2007). *Matplotlib: A 2D Graphics Environment*. Computing in Science & Engineering, 9(3), 90–95. <https://doi.org/10.1109/MCSE.2007.55>.
 * **seaborn**: Waskom ML (2021). *seaborn: statistical data visualization*. Journal of Open Source Software, 6(60), 3021. <https://doi.org/10.21105/joss.03021>.
