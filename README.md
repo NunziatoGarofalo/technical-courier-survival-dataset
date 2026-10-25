@@ -250,3 +250,38 @@ This repository uses a dual-license structure to separate code from datasets:
 
 - **Source Code** (R/Python scripts for data generation and survival analysis): Licensed under the [MIT License](LICENSE).
 - **Dataset** (Synthetic data for reproducibility): Licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) License.
+
+
+## How to Cite
+
+If you use this dataset, software, or the associated methodology in your research, please cite both the paper and the repository:
+
+### 1. Academic Article (IJIEOM / Emerald)
+> Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *International Journal of Industrial Engineering and Operations Management*, Emerald Publishing.
+```bibtex
+@article{Garofalo2026Paper,
+  author       = {Nunziato Garofalo},
+  title        = {Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics},
+  journal      = {International Journal of Industrial Engineering and Operations Management},
+  publisher    = {Emerald Publishing},
+  year         = {2026},
+  doi          = {10.1108/IJIEOM-XX-2026-XXXX}
+}
+```
+---
+
+### 2. Dataset & Software Repository (Zenodo DOI)
+> Garofalo, N. (2026). *Technical Courier Survival Dataset & Predictive Modeling Framework* (Version 1.0.0) [Data set & Code]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX 
+> Repository source: https://github.com/NunziatoGarofalo/technical-courier-survival-dataset
+```bibtex
+@misc{Garofalo2026Dataset,
+  author       = {Nunziato Garofalo},
+  title        = {Technical Courier Survival Dataset \& Predictive Modeling Framework},
+  year         = {2026},
+  publisher    = {Zenodo},
+  version      = {1.0.0},
+  doi          = {10.5281/zenodo.XXXXXXX},
+  url          = {[https://doi.org/10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXX)}
+}
+```
+
