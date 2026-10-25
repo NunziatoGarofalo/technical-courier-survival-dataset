@@ -129,7 +129,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   Extra distance from central HUB to customer when a faillure recorded.
 
 - **`kgCO2`** (*Continuous Numeric*)  
-  Estimated carbon emissions (kg CO<sub>2</sub>) based on vehicle mileage and return trips due to failed road deliveries (baseline emission factor $E = 0.257kg CO<sub>2</sub>\km).
+  Estimated carbon emissions (kg CO<sub>2</sub>) based on vehicle mileage and return trips due to failed road deliveries (baseline emission factor E = 0.257kg CO<sub>2</sub>\km).
 
 - **`Cumulative_Completed_Deliveries`** (*Discrete Integer*)  
   Driver workload progression within time slot modeled via a dynamic Poisson.
