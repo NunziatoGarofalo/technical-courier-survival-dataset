@@ -230,6 +230,16 @@ To ensure full reproducibility of the synthetic dataset generation and any rando
 set.seed(123456789)
 ```
 
+### 5. Running the Complete Pipeline with Automated Master Script
+To make replication effortless, the project is structured as an automated pipeline orchestrated by a single master script. 
+Open your R project workspace, set it to the root directory of the repository, and execute the **`main.R`** script. 
+The master script is fully automated: it will automatically check for any missing packages, install them along with their dependencies, set the global random seed, and sequentially orchestrate the entire pipeline:
+
+```R
+# Execute the complete end-to-end pipeline automatically
+source("main.R")
+```
+
 ---
 
 ## 📜 License
