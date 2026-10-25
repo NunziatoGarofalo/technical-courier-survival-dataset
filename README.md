@@ -230,6 +230,8 @@ To ensure full reproducibility of the synthetic dataset generation and any rando
 ```R
 # Example of global seed initialization within the workflow
 set.seed(123456789)
+# Example of local seed initialization within the workflow
+set.seed(1276)
 ```
 
 ### 5. Running the Complete Pipeline with Automated Master Script
