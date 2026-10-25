@@ -15,131 +15,127 @@ Below is the exhaustive mathematical and operational specification for every fea
 ### 1. Primary Identifiers & Geography
 
 - **`ID_Delivery_Order`** (*Categorical / String*)  
-  Unique 7-digit zero-padded order identifier generated via sampling without replacement ($ID_i \sim \text{Uniform}(0, 9999999)$, formatted as `%07d`).
+  Unique 7-digit zero-padded order identifier generated via sampling without replacement.
 
 - **`City`** (*Categorical*)  
-  Synthetic municipality name formatted as `City_<Province>_<ID>`.
+  Synthetic municipality name formatted as `<City>_<Province>_<ID>`.
 
 - **`Postal_Code`** (*Categorical*)  
-  5-digit synthetic Italian postal code (`CAP`), sampled from $\text{Uniform}(10000, 99999)$.
+  5-digit synthetic Italian postal code (`CAP`).
 
 - **`Province`** (*Categorical*)  
-  Two-letter Italian provincial code sampled from a master pool of $107$ official administrative codes ($P$).
+  Two-letter Italian provincial code sampled from a master pool of 107 official administrative codes.
 
 - **`Street_Address`** (*Categorical*)  
-  Synthetic street address combining street numbers ($n \in [1, 300]$) and major Italian street naming conventions.
+  Synthetic street address combining street numbers and major Italian street naming conventions.
 
 - **`ZTL_Restriction`** (*Binary / Categorical*)  
-  Indicates whether the address falls within a Limited Traffic Zone (*Zona a Traffico Limitato*): `$ZTL_i \sim \text{Bernoulli}(p = 0.35)$`.
+  Indicates whether the address falls within a Limited Traffic Zone (*ZTL in Italy*).
 
 ---
 
 ### 2. Temporal & Scheduling Features
 
 - **`Order_Creation_Date`** (*Date*)  
-  Order placement date sampled uniformly across valid working days (excluding Sundays) in calendar year $2025$.
+  Order placement date sampled uniformly across valid working days (excluding Sundays) in calendar year 2025.
 
 - **`Contact_Date`** (*Date*)  
-  Date of customer contact, modeled as a discrete stochastic lag: $\text{Contact\_Date}_i = \text{Order\_Creation\_Date}_i + \Delta t_{\text{contact}}$, where $\Delta t_{\text{contact}} \sim \text{Uniform}(\{1, \dots, 5\})$.
+  Date of customer contact, modeled as a discrete stochastic lag.
 
 - **`Delivery_Date`** (*Date*)  
-  Scheduled delivery date post customer contact: $\text{Delivery\_Date}_i = \text{Contact\_Date}_i + \Delta t_{\text{delivery}}$, where $\Delta t_{\text{delivery}} \sim \text{Uniform}(\{1, \dots, 7\})$.
+  Scheduled delivery date post customer contact.
 
 - **`Day_OfWeek`** (*Categorical*)  
-  Standardized English day-of-week string extracted from `Delivery_Date`.
+  Standardized day-of-week string extracted from `Delivery_Date`.
 
 - **`Delivery_Time_Slot`** (*Categorical*)  
-  Scheduled window (`08:00–13:00`, `14:00–18:00` on weekdays; adjusted `08:00–12:00` window for $45\%$ of Saturday deliveries).
+  Scheduled window (`08:00–13:00`, `14:00–18:00` on weekdays; adjusted `08:00–12:00` window for 45% of Saturday deliveries).
 
 - **`Exact_Delivery_Date`** (*Date*)  
-  Actual delivery date execution incorporating operational delays: $\text{Exact\_Delivery\_Date}_i = \text{Delivery\_Date}_i + \delta$, with $\delta \in \{0, 1, 2\}$ and $P(\delta) = \{0.80, 0.15, 0.05\}$.
+  Exact delivery date execution incorporating operational delays.
 
 - **`Exact_Delivery_Time`** (*Time String*)  
-  Exact arrival time modeled within the time slot duration $D$ via a Poisson process: $t_{\text{offset}} = X \pmod D$, where $X \sim \text{Poisson}(\lambda = D / 2)$.
+  Exact arrival time modeled within the time slot duration via a Poisson process.
 
 ---
 
 ### 3. Customer Communication Features
 
 - **`Contact_Attempts`** (*Discrete Integer*)  
-  Number of contact attempts prior to scheduling ($c \in \{1, 2, 3, 4\}$ with probabilities $P = \{0.80, 0.09, 0.06, 0.05\}$).
+  Number of contact attempts prior to scheduling.
 
 - **`Contact_Time_Slot`** (*Categorical*)  
   Assigned customer contact window (`09:00–13:00`, `15:00–19:00`).
 
 - **`Exact_Contact_Time`** (*Time String*)  
-  Exact call timestamp incorporating a $20\%$ out-of-slot call probability ($U(0,1) < 0.20$).
+  Exact time of contact customer according contact time slot scheduled.
 
 - **`Appointment_Confirmation_Received`** (*Categorical*)  
-  Indicates whether the delivery appointment was confirmed (`"SI"`, `"NO"`, `"NOT_ORGANIZED"`).
+  Indicates whether the delivery appointment was confirmed (`"YES"`, `"NOT"`, `"NOT_ORGANIZED"`).
 
 ---
 
 ### 4. Product, Inventory & Operational Specifications
 
 - **`Product_Size`** (*Categorical*)  
-  Package dimension tier (`"Small"`, `"Medium"`, `"Large"`, `"Bulky"`), sampled with probabilities $P = \{0.30, 0.40, 0.20, 0.10\}$.
+  Package dimension tier (`"Small"`, `"Medium"`, `"Large"`, `"Bulky"`).
 
 - **`Product_Item`** (*Categorical*)  
   Specific product item description mapped conditionally to `Product_Size`.
 
 - **`Service_Type`** (*Categorical*)  
-  Service level requested: `"Delivery Only"` ($35\%$) vs. `"Delivery & Installation"` ($65\%$).
+  Service level requested: `"Delivery Only"` (35%) vs. `"Delivery & Installation"` (65%).
 
 - **`Personnel_Required`** (*Discrete Integer*)  
-  Delivery crew size required ($1$ or $2$ operators), conditioned on size tier and service complexity.
+  Delivery crew size required (1 or 2 operators), conditioned on size tier and service complexity.
 
 - **`Product_Code`** (*Categorical*)  
-  SKU identifier sampled from $100$ pooled codes per size tier (e.g., `SKU-S-001`).
+  SKU identifier sampled from 100 pooled codes per size tier (e.g., `SKU-S-001`).
 
 - **`Stock_Quantity`** (*Discrete Non-negative Integer*)  
-  Dynamic inventory balance $S_t$ per SKU updated chronologically over order creation dates: $S_{t} = \max(0, S_{t-1} + R_t - 1)$, where $R_t \sim \text{Uniform}(30, 60)$ if $U(0,1) < 0.08$ else $0$.
+  Dynamic inventory balance per SKU updated chronologically over order creation dates.
 
 ---
 
 ### 5. Environmental & Exogenous Factors
 
 - **`Temperature_C`** (*Continuous Numeric*)  
-  Ambient microclimate temperature (°C) synthesized using regional baselines $T_{\text{prov}}$, seasonal monthly offsets $T_{\text{season}}$, diurnal peak hour adjustments $T_{\text{diurnal}}$, and Gaussian noise $\epsilon$: $T_i = T_{\text{prov}} + T_{\text{season}} + T_{\text{diurnal}} + \epsilon_i$, with $\epsilon_i \sim \mathcal{N}(\mu = 0, \sigma^2 = 1.44)$.
+  Ambient microclimate temperature (°C) synthesized using regional baselines, seasonal monthly offsets, diurnal peak hour adjustments, and Gaussian noise.
 
 ---
 
 ### 6. Operational Failure & Outcome Mechanisms
 
 - **`Censorship_Indicator`** (*Binary*)  
-  Administrative cutoff indicator for survival/event-history analysis: $C_i = 0$ if the record falls in the last $25\%$ chronologically (Right-Censored), and $1$ otherwise (Fully Observed).
+  Administrative cutoff indicator for survival/event-history analysis: 0 if the record falls in the last 25% chronologically (Right-Censored), and 1 otherwise (Fully Observed).
 
 - **`Delivery_Status`** (*Categorical*)  
   Final operational outcome (`"Successful"`, `"Failed"`, `"Censored"`).
 
 - **`Failure_Reason`** (*Categorical*)  
-  Root cause classification assigned dynamically based on thermal stress conditions ($T_i > 37.5\text{°C}$ or $T_i < -1.0\text{°C}$), stockouts ($S_t = 0$), ZTL permit status, and operational constraints.
+  Root cause classification assigned dynamically based on thermal stress conditions, stockouts, ZTL permit status, and operational constraints.
 
 - **`Technical_Installation_Detail`** (*Categorical*)  
-  Detailed failure cause for installation issues (`"None"`, `"electrical/hydraulic system modification required"`, etc.).
+  Detailed failure cause for installation issues (`"None"`, `"electrical/hydraulic system modification required"`, ...).
 
 ---
 
 ### 7. Distances, Workload & Carbon Footprint
 
 - **`Delivery_Distance_KM`** (*Continuous Numeric*)  
-  Distance from local hub to customer destination ($\text{km}$), modeled via truncated normal distribution: $d_{\text{delivery}} \sim \mathcal{N}(\mu = 20, \sigma^2 = 49)$, constrained to $[1, 40]$.
+  Distance from local hub to customer destination, modeled via truncated normal distribution.
 
 - **`Delivery_Distance_HUB_Km`** (*Continuous Numeric*)  
-  Distance from central regional HUB to local facility ($\text{km}$): $d_{\text{hub}} \sim \mathcal{N}(\mu = 25, \sigma^2 = 100)$, constrained to $[1, 50]$.
+  Extra distance from central HUB to customer when a faillure recorded.
 
 - **`kgCO2`** (*Continuous Numeric*)  
-  Estimated carbon emissions (kg CO<sub>2</sub>) based on vehicle mileage and return trips due to failed road deliveries (baseline emission factor $E = 0.257\text{ kg CO}_2/\text{km}$):  
-  - $\text{CO}_2 = 0.257 \cdot d_{\text{delivery}}$ if Successful  
-  - $\text{CO}_2 = 0.257 \cdot (d_{\text{hub}} + d_{\text{delivery}})$ if Failed on Road  
-  - $\text{CO}_2 = 0$ if Upstream Failure / Censored
+  Estimated carbon emissions (kg CO<sub>2</sub>) based on vehicle mileage and return trips due to failed road deliveries (baseline emission factor $E = 0.257kg CO<sub>2</sub>\km).
 
 - **`Cumulative_Completed_Deliveries`** (*Discrete Integer*)  
-  Driver workload progression within time slot modeled via a dynamic Poisson intensity parameter $\lambda_{\text{workload}}(t)$.
+  Driver workload progression within time slot modeled via a dynamic Poisson.
 
 - **`Prior_Address_Failures`** (*Discrete Non-negative Integer*)  
-  Sequential historical failure count per unique street address up to order creation time $t$: $F_i = \sum_{k < i} \mathbb{I}(\text{Delivery\_Status}_k = \text{"Failed"} \land \text{Address}_k = \text{Address}_i)$.
-
+  Sequential historical failure count per unique street address up to order creation time.
 ---
 
 ## Data Preview (Sample Extract)
@@ -161,6 +157,78 @@ Ensure you have [R](https://www.r-project.org/) (version 4.0 or higher recommend
 
 ### 2. Install Required Dependencies
 Open your R console and execute the following command to install the necessary packages.
+
+```R
+# --- A. Data Manipulation & IO ---
+pkg_data_manipulation <- c("dplyr", "plyr", "tidyverse", "MASS", "writexl", "readxl")
+
+# --- B. Statistical Survival Analysis & Machine Learning ---
+pkg_survival_ml       <- c("survival", "survminer", "glmnet", "pec", "ranger", "xgboost", "timeROC", "DALEX")
+
+# --- C. Visualization, Theming & Exploratory Plots ---
+pkg_visualization     <- c("ggplot2", "viridis", "ggpubr", "ggcorrplot", "GGally", "gridGraphics", "reshape2")
+
+# --- D. Reporting & Environment Integration ---
+pkg_reporting         <- c("xtable", "reticulate")
+
+all_packages <- unique(c(pkg_data_manipulation, pkg_survival_ml, pkg_visualization, pkg_reporting))
+
+# Automated check and installation routine for missing packages
+installed_packages <- all_packages %in% rownames(installed.packages())
+if (any(!installed_packages)) {
+  cat("Installing missing packages...\n")
+  install.packages(all_packages[!installed_packages], dependencies = TRUE)
+}
+```
+
+### 3. Package Versions Used
+To ensure full reproducibility, the analysis was tested with the following package versions:
+
+| Package | Version | Package | Version | Package | Version | Package | Version |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `DALEX` | 2.4.3 | `dplyr` | 1.1.4 | `forcats` | 1.0.1 | `GGally` | 2.1.2 |
+| `ggplot2` | 3.4.2 | `ggcorrplot` | 0.1.4.1 | `ggpubr` | 0.6.0 | `glmnet` | 4.1-8 |
+| `gridGraphics` | 0.5-1 | `lubridate` | 1.9.3 | `MASS` | 7.3-58.1 | `Matrix` | 1.5-1 |
+| `pec` | 2023.04.12 | `plyr` | 1.8.9 | `prodlim` | 2023.08.28 | `purrr` | 1.0.2 |
+| `ranger` | 0.16.0 | `readr` | 2.1.5 | `readxl` | 1.4.3 | `reshape2` | 1.4.4 |
+| `reticulate` | 1.36.1 | `stringr` | 1.6.0 | `survival` | 3.6-4 | `survminer` | 0.5.1 |
+| `tibble` | 3.2.1 | `tidyverse` | 2.0.0 | `tidyr` | 1.3.1 | `timeROC` | 0.4.1 |
+| `viridis` | 0.6.5 | `viridisLite` | 0.4.3 | `writexl` | 1.5.0 | `xgboost` | 1.7.7.1 |
+| `xtable` | 1.8-8 | | | | | | |
+
+<details>
+<summary><b>📦 View Namespace Dependencies (Loaded via Namespace)</b></summary>
+
+For complete low-level reproducibility, here are the additional underlying packages loaded via namespace:
+
+| Package | Version | Package | Version | Package | Version | Package | Version |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `abind` | 1.4-8 | `backports` | 1.4.1 | `broom` | 1.0.13 | `car` | 3.1-5 |
+| `carData` | 3.0-6 | `cellranger` | 1.1.0 | `cli` | 3.6.2 | `codetools` | 0.2-18 |
+| `compiler` | 4.2.2 | `data.table` | 1.15.4 | `digest` | 0.6.35 | `farver` | 2.1.1 |
+| `foreach` | 1.5.2 | `Formula` | 1.2-6 | `future` | 1.33.2 | `future.apply` | 1.10.0 |
+| `generics` | 0.1.4 | `globals` | 0.20.0 | `glue` | 1.7.0 | `gridExtra` | 2.3.1 |
+| `ggsignif` | 0.6.4 | `gtable` | 0.3.6 | `hms` | 1.1.4 | `iterators` | 1.0.14 |
+| `jsonlite` | 1.8.8 | `km.ci` | 0.5-6 | `KMsurv` | 0.1-6 | `knitr` | 1.42 |
+| `lattice` | 0.20-45 | `lava` | 1.8.1 | `lifecycle` | 1.0.5 | `listenv` | 1.1.0 |
+| `magrittr` | 2.0.3 | `mvtnorm` | 1.2-4 | `numDeriv` | 2016.8-1.1 | `parallel` | 4.2.2 |
+| `parallelly` | 1.37.1 | `pillar` | 1.11.1 | `pkgconfig` | 2.0.3 | `png` | 0.1-8 |
+| `R6` | 2.6.1 | `RColorBrewer` | 1.1-3 | `Rcpp` | 1.0.12 | `reshape` | 0.8.10 |
+| `rlang` | 1.1.3 | `rstatix` | 0.7.3 | `rstudioapi` | 0.19.0 | `scales` | 1.4.0 |
+| `shape` | 1.4.6.1 | `splines` | 4.2.2 | `stringi` | 1.8.3 | `survMisc` | 0.5.6 |
+| `timechange` | 0.3.0 | `timereg` | 2.0.5 | `tidyselect` | 1.2.1 | `tools` | 4.2.2 |
+| `tzdb` | 0.4.0 | `vctrs` | 0.6.5 | `withr` | 3.0.3 | `xfun` | 0.43 |
+| `zoo` | 1.8-12 | | | | | | |
+
+</details>
+
+### 4. Setting a Random Seed
+To ensure full reproducibility of the synthetic dataset generation and any randomized algorithms (such as machine learning models), specific `set.seed()` calls have been embedded directly into the execution flow of the script:
+
+```R
+# Example of global seed initialization within the workflow
+set.seed(123456789)
+```
 
 ---
 
