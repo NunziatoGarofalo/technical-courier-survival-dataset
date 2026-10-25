@@ -144,7 +144,7 @@ Below is an extract showing a complete sample record with all 33 columns generat
 
 | ID_Delivery_Order | Order_Creation_Date | Censorship_Indicator | City | Postal_Code | Province | Street_Address | Contact_Date | Contact_Time_Slot | Exact_Contact_Time | Contact_Attempts | Appointment_Confirmation_Received | Delivery_Date | Day_OfWeek | ZTL_Restriction | Delivery_Time_Slot | Exact_Delivery_Date | Exact_Delivery_Time | Cumulative_Completed_Deliveries | Prior_Address_Failures | Product_Size | Product_Item | Service_Type | Personnel_Required | Product_Code | Stock_Quantity | Delivery_Distance_KM | Delivery_Status | Failure_Reason | Technical_Installation_Detail | Delivery_Distance_HUB_Km | kgCO2 | Temperature_C |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **4829104** | 2025-03-12 | 1 | City_MI_124 | 20121 | MI | 45 Garibaldi Street | 2025-03-15 | 09:00-13:00 | 10:15 | 1 | SI | 2025-03-20 | Thursday | Standard Area | 08:00-13:00 | 2025-03-20 | 09:45 | 4 | 0 | Large | Washing Machine | Delivery & Installation | 2 | SKU-L-042 | 54 | 18 | Successful | None | None | 22 | 4.63 | 14.2 |
+| **4829104** | 2025-03-12 | 1 | City_MI_124 | 20121 | MI | 45 Garibaldi Street | 2025-03-15 | 09:00-13:00 | 10:15 | 1 | YES | 2025-03-20 | Thursday | Standard Area | 08:00-13:00 | 2025-03-20 | 09:45 | 4 | 0 | Large | Washing Machine | Delivery & Installation | 2 | SKU-L-042 | 54 | 18 | Successful | None | None | 22 | 4.63 | 14.2 |
 
 ---
 
