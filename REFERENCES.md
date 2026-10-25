@@ -4,15 +4,11 @@ This project relies on open-source software libraries and established statistica
 
 ---
 
-## 1. Foundational Survival Analysis & Statistical Theory
+## 1. Statistical Methods for Survival Analysis
 * **Kaplan-Meier Estimator**: Kaplan, E. L., & Meier, P. (1958). Nonparametric Estimation from Incomplete Observations. *Journal of the American Statistical Association*, 53(282), 457–481.
 * **Nelson-Aalen Estimator**: Nelson, W. (1969). Hazard Plotting for Incomplete Failure Data. *Journal of Quality Technology*, 1(1), 27–52; Nelson, W. (1972). Theory and Applications of Hazard Plotting for Censored Failure Data. *Technometrics*, 14(4), 945–966.
 * **Cox Proportional Hazards Model**: Cox, D. R. (1972). Regression Models and Life-Tables. *Journal of the Royal Statistical Society*, 34(2), 187–220; Cox, D. R., & Oakes, D. (1987). *Analysis of Survival Data*, Chapman & Hall/CRC.
 * **Survival Modeling Reference**: Therneau, T. M., & Grambsch, P. M. (2000/2010). *Modeling Survival Data: Extending the Cox Model*, Springer New York.
-
----
-
-## 2. Statistical Methods for Survival Analysis
 * **Lasso Method**: Tibshirani, R. (1997). The Lasso Method for Variable Selection in the Cox Model. *Statistics in Medicine*, 16(4), 385–395.
 * **Elastic Net**: Zou, H., & Hastie, T. (2005). Regularization and Variable Selection via the Elastic Net. *Journal of the Royal Statistical Society: Series B*, 67(2), 301–320.
 * **Coordinate Descent for Cox Models**: Simon, N., Friedman, J., Hastie, T., & Tibshirani, R. (2011). Regularization Paths for Cox's Proportional Hazards Model via Coordinate Descent. *Journal of Statistical Software*, 39(5), 1–13.
