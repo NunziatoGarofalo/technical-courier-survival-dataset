@@ -28,7 +28,7 @@ This repository uses a dual-license structure to separate code from datasets:
 
 ## 💬 How to Cite
 
-If you use this dataset, software, or the associated methodology in your research, please cite both the paper and the repository:
+If you use this dataset, R script, or the associated methodology in your research, please cite both the paper and the repository:
 
 ### 1. Academic Article (IJIEOM / Emerald)
 > Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *International Journal of Industrial Engineering and Operations Management*, Emerald Publishing.
