@@ -9,9 +9,9 @@ The codebase is engineered for predictive modeling, delivery failure analysis, i
 The resulting dataset is provided in both **CSV (`.csv`)** and **Excel (`.xlsx`)** formats within the [`data/`](data/) directory for maximum accessibility, while  the script to generate the synthetic dataset and conducted analyses — including descriptive statistics and survival modeling (**`01-main.R`**, **`02-synthetic_dataset.R`**, **`03-descriptive_analysis.R`**, **`04-survival_analysis.R`**) — are fully detailed within the R script files located in the [`src/`](src/) directory.
 * 🎯 **Objective:** This study proposes a dataset and proactive predictive framework based on survival analysis to evaluate and mitigate delivery failure risks in last-mile technical courier services, addressing
 operational inefficiency, elevated costs, and redundant emissions.
-   * RQ1. Which factors exert the greatest influence on the occurrence of failed deliveries in technical courier services?
-   * RQ2. Are advanced machine learning models capable of accurately predicting the time-dependent risk of delivery failure prior to service execution?
-   * RQ3. What extent can predictive analytics enhance the sustainability of logistics operations by reducing failed deliveries and minimizing unnecessary vehicle movements?
+   * **RQ1.** Which factors exert the greatest influence on the occurrence of failed deliveries in technical courier services?
+   * **RQ2.** Are advanced machine learning models capable of accurately predicting the time-dependent risk of delivery failure prior to service execution?
+   * **RQ3.** What extent can predictive analytics enhance the sustainability of logistics operations by reducing failed deliveries and minimizing unnecessary vehicle movements?
 * 🚀 **Target Audience:** Technical courier services, operations managers, supervisors and sector scientists.
 * 💡 **Key Strengths:** This project bridges logistics management and survival analysis by demonstrating how a scalable dataset survival architecture effectively integrates real-time environmental telemetry and non-linear operational constraints in technical logistics, aiming to reduce carbon emissions and significantly enhance last-mile responsiveness and efficiency.
 
