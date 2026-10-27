@@ -13,7 +13,7 @@ operational inefficiency, elevated costs, and redundant emissions.
    * RQ2. Are advanced machine learning models capable of accurately predicting the time-dependent risk of delivery failure prior to service execution?
    * RQ3. What extent can predictive analytics enhance the sustainability of logistics operations by reducing failed deliveries and minimizing unnecessary vehicle movements?
 * 🚀 **Target Audience:** Technical courier services, operations managers, supervisors and sector scientists.
-* 💡 **Key Strengths:** This project bridges logistics management and survival analysis by demonstrating how a scalable flat-file survival architecture effectively integrates real-time environmental telemetry and non-linear operational constraints in technical logistics, aiming to reduce carbon emissions and significantly enhance last-mile responsiveness and efficiency.
+* 💡 **Key Strengths:** This project bridges logistics management and survival analysis by demonstrating how a scalable dataset survival architecture effectively integrates real-time environmental telemetry and non-linear operational constraints in technical logistics, aiming to reduce carbon emissions and significantly enhance last-mile responsiveness and efficiency.
 
 ---
 
