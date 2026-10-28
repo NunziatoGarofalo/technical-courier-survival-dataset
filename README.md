@@ -1,4 +1,9 @@
-![NomeBadge](https://img.shields.io/badge/ORCID-0009.0002.2993.6083-green?logo=ORCID)
+![NomeBadge](https://img.shields.io/badge/ORCID.ID-0009.0002.2993.6083-green?logo=ORCID)
+![NomeBadge](https://img.shields.io/badge/DOI-XX.X/zenodo-blue?) 
+
+![NomeBadge](https://img.shields.io/badge/license-MIT-blue?) ![NomeBadge](https://img.shields.io/badge/license/DATA-CCBY4.0-blue?) ![NomeBadge](https://img.shields.io/badge/script-100%25-blue?logo=R)
+
+
 
 # technical-courier-survival-dataset
 
