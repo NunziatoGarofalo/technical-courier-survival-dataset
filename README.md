@@ -1,3 +1,5 @@
+![NomeBadge](https://img.shields.io/badge/ORCID-0009.0002.2993.6083-green?logo=ORCID)
+
 # technical-courier-survival-dataset
 
 Official dataset and resources for the paper: "Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics".
