@@ -1,7 +1,5 @@
 # technical-courier-survival-dataset
 
-https://img.shields.io/badge/logo-javascript-blue?logo=javascript&logoColor=f5f5f5
-
 Official dataset and resources for the paper: "Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics".
 
 ## 🔭 Overview
