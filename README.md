@@ -80,7 +80,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   Unique 7-digit zero-padded order identifier generated via sampling without replacement.
 
 - **`City`** (*Categorical*)  
-  Synthetic municipality name formatted as `<City>_<Province>_<ID>`.
+  Synthetic municipality name formatted as `<City>`.
 
 - **`Postal_Code`** (*Categorical*)  
   5-digit synthetic Italian postal code (`CAP`).
