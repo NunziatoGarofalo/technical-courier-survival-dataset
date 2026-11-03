@@ -69,12 +69,12 @@ If you use this dataset, R script, or the associated methodology in your researc
 ```
 
 ---
-
 ## 📊 Dataset & Variable Description
 
 Below is the exhaustive mathematical and operational specification for every feature generated within the dataset.
 
-### 1. Primary Identifiers & Geography
+<details>
+<summary><b>1. Primary Identifiers & Geography </b></summary> 
 
 - **`ID_Delivery_Order`** (*Categorical / String*)  
   Unique 7-digit zero-padded order identifier generated via sampling without replacement.
@@ -93,10 +93,10 @@ Below is the exhaustive mathematical and operational specification for every fea
 
 - **`ZTL_Restriction`** (*Binary / Categorical*)  
   Indicates whether the address falls within a Limited Traffic Zone (*ZTL in Italy*).
+</details>
 
----
-
-### 2. Temporal & Scheduling Features
+<details>
+<summary><b>2. Temporal & Scheduling Features</b></summary>
 
 - **`Order_Creation_Date`** (*Date*)  
   Order placement date sampled uniformly across valid working days (excluding Sundays) in calendar year 2025.
@@ -116,12 +116,11 @@ Below is the exhaustive mathematical and operational specification for every fea
 - **`Exact_Delivery_Date`** (*Date*)  
   Exact delivery date execution incorporating operational delays.
 
-- **`Exact_Delivery_Time`** (*Time String*)  
-  Exact arrival time modeled within the time slot duration via a Poisson process.
+- **`Exact_Delivery_Time`** (*Time String*)   Exact arrival time modeled within the time slot duration via a Poisson process.
+</details>
 
----
-
-### 3. Customer Communication Features
+<details>
+<summary><b>3. Customer Communication Features</b></summary>
 
 - **`Contact_Attempts`** (*Discrete Integer*)  
   Number of contact attempts prior to scheduling.
@@ -134,10 +133,11 @@ Below is the exhaustive mathematical and operational specification for every fea
 
 - **`Appointment_Confirmation_Received`** (*Categorical*)  
   Indicates whether the delivery appointment was confirmed (`"YES"`, `"NOT"`, `"NOT_ORGANIZED"`).
+</details>
 
----
+<details>
+<summary><b>4. Product, Inventory & Operational Specifications</b></summary>
 
-### 4. Product, Inventory & Operational Specifications
 
 - **`Product_Size`** (*Categorical*)  
   Package dimension tier (`"Small"`, `"Medium"`, `"Large"`, `"Bulky"`).
@@ -156,17 +156,17 @@ Below is the exhaustive mathematical and operational specification for every fea
 
 - **`Stock_Quantity`** (*Discrete Non-negative Integer*)  
   Dynamic inventory balance per SKU updated chronologically over order creation dates.
+</details>
 
----
-
-### 5. Environmental & Exogenous Factors
+<details>
+<summary><b>5. Environmental & Exogenous Factors</b></summary>
 
 - **`Temperature_C`** (*Continuous Numeric*)  
   Ambient microclimate temperature (°C) synthesized using regional baselines, seasonal monthly offsets, diurnal peak hour adjustments, and Gaussian noise.
+</details>
 
----
-
-### 6. Operational Failure & Outcome Mechanisms
+<details>
+<summary><b>6. Operational Failure & Outcome Mechanisms</b></summary>
 
 - **`Censorship_Indicator`** (*Binary*)  
   Administrative cutoff indicator for survival/event-history analysis: 0 if the record falls in the last 25% chronologically (Right-Censored), and 1 otherwise (Fully Observed).
@@ -179,10 +179,10 @@ Below is the exhaustive mathematical and operational specification for every fea
 
 - **`Technical_Installation_Detail`** (*Categorical*)  
   Detailed failure cause for installation issues.
+</details>
 
----
-
-### 7. Distances, Workload & Carbon Footprint
+<details>
+<summary><b>7. Distances, Workload & Carbon Footprint</b></summary>
 
 - **`Delivery_Distance_KM`** (*Continuous Numeric*)  
   Distance from local hub to customer destination, modeled via truncated normal distribution.
@@ -198,6 +198,8 @@ Below is the exhaustive mathematical and operational specification for every fea
 
 - **`Prior_Address_Failures`** (*Discrete Non-negative Integer*)  
   Sequential historical failure count per unique street address up to order creation time.
+</details>
+
 ---
 
 ## 🔎 Data Preview
