@@ -200,6 +200,198 @@ Below is the exhaustive mathematical and operational specification for every fea
   Sequential historical failure count per unique street address up to order creation time.
 </details>
 
+<table>
+  <thead>
+    <tr>
+      <th>Feature Category</th>
+      <th>Variable Name (R)</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- 1. Identification -->
+    <tr>
+      <td><strong>Identification</strong></td>
+      <td><code>ID_Delivery_Order</code></td>
+      <td>String</td>
+      <td>Unique delivery order identifier (zero-padded 7-digit format).</td>
+    </tr>
+    <!-- 2. Spatial & Geographical -->
+    <tr>
+      <td rowspan="6"><strong>Geographical & Spatial</strong></td>
+      <td><code>City</code></td>
+      <td>String</td>
+      <td>Destination city based on the Italian reference pool.</td>
+    </tr>
+    <tr>
+      <td><code>Postal_Code</code></td>
+      <td>String</td>
+      <td>Associated postal code (5-digit ZIP code).</td>
+    </tr>
+    <tr>
+      <td><code>Province</code></td>
+      <td>String</td>
+      <td>Italian provincial administrative code (e.g., MI, RM, NA).</td>
+    </tr>
+    <tr>
+      <td><code>Street_Address</code></td>
+      <td>String</td>
+      <td>Simulated street address and street name.</td>
+    </tr>
+    <tr>
+      <td><code>ZTL_Restriction</code></td>
+      <td>String</td>
+      <td>Limited Traffic Zone regulatory status (ZTL / Standard Area).</td>
+    </tr>
+    <tr>
+      <td><code>Delivery_Distance_KM</code></td>
+      <td>Numeric</td>
+      <td>Delivery distance in kilometers (1-40 km).</td>
+    </tr>
+    <!-- 3. Temporal -->
+    <tr>
+      <td rowspan="8"><strong>Temporal & Scheduling</strong></td>
+      <td><code>Order_Creation_Date</code></td>
+      <td>Date</td>
+      <td>Order creation date (year 2025, excluding Sundays).</td>
+    </tr>
+    <tr>
+      <td><code>Contact_Date</code></td>
+      <td>Date</td>
+      <td>Customer contact date for planning (1-5 working days lag).</td>
+    </tr>
+    <tr>
+      <td><code>Delivery_Date</code></td>
+      <td>Date</td>
+      <td>Scheduled delivery date.</td>
+    </tr>
+    <tr>
+      <td><code>Exact_Delivery_Date</code></td>
+      <td>Date</td>
+      <td>Actual execution date of delivery (incorporating operational lag).</td>
+    </tr>
+    <tr>
+      <td><code>Day_OfWeek</code></td>
+      <td>String</td>
+      <td>Day of the week for delivery (standardized in English).</td>
+    </tr>
+    <tr>
+      <td><code>Delivery_Time_Slot</code></td>
+      <td>String</td>
+      <td>Planned delivery time window (handling Saturday constraints).</td>
+    </tr>
+    <tr>
+      <td><code>Exact_Delivery_Time</code></td>
+      <td>String</td>
+      <td>Exact arrival time estimated via a Poisson process.</td>
+    </tr>
+    <tr>
+      <td><code>Cumulative_Completed_Deliveries</code></td>
+      <td>Integer</td>
+      <td>Driver's dynamic workload (completed deliveries within the slot).</td>
+    </tr>
+    <!-- 4. Communication -->
+    <tr>
+      <td rowspan="4"><strong>Communication & Appointments</strong></td>
+      <td><code>Contact_Attempts</code></td>
+      <td>Integer</td>
+      <td>Number of contact attempts made prior to confirmation (1-4).</td>
+    </tr>
+    <tr>
+      <td><code>Contact_Time_Slot</code></td>
+      <td>String</td>
+      <td>Scheduled time window for phone contact.</td>
+    </tr>
+    <tr>
+      <td><code>Exact_Contact_Time</code></td>
+      <td>String</td>
+      <td>Actual contact time (includes a 20% out-of-slot probability).</td>
+    </tr>
+    <tr>
+      <td><code>Appointment_Confirmation_Received</code></td>
+      <td>String</td>
+      <td>Appointment confirmation indicator (YES / NOT / NOT_ORGANIZED).</td>
+    </tr>
+    <!-- 5. Product & Resources -->
+    <tr>
+      <td rowspan="6"><strong>Product & Resources</strong></td>
+      <td><code>Product_Size</code></td>
+      <td>String</td>
+      <td>Product dimensional category (Small, Medium, Large, Bulky).</td>
+    </tr>
+    <tr>
+      <td><code>Product_Item</code></td>
+      <td>String</td>
+      <td>Specific item description (e.g., Decoder, Refrigerator, TV).</td>
+    </tr>
+    <tr>
+      <td><code>Service_Type</code></td>
+      <td>String</td>
+      <td>Requested service type (Delivery Only vs. Delivery & Installation).</td>
+    </tr>
+    <tr>
+      <td><code>Personnel_Required</code></td>
+      <td>Integer</td>
+      <td>Operational personnel required based on size and service (1 or 2 staff).</td>
+    </tr>
+    <tr>
+      <td><code>Product_Code</code></td>
+      <td>String</td>
+      <td>Product SKU code stratified by class.</td>
+    </tr>
+    <tr>
+      <td><code>Stock_Quantity</code></td>
+      <td>Integer</td>
+      <td>Warehouse stock state at the time of the order (dynamic simulation).</td>
+    </tr>
+    <!-- 6. Context & History -->
+    <tr>
+      <td rowspan="5"><strong>Context & History</strong></td>
+      <td><code>Prior_Address_Failures</code></td>
+      <td>Integer</td>
+      <td>Historical cumulative feature of previous failures at the same address.</td>
+    </tr>
+    <tr>
+      <td><code>Temperature_C</code></td>
+      <td>Numeric</td>
+      <td>Estimated ambient temperature (°C) based on microclimate and seasonality.</td>
+    </tr>
+    <tr>
+      <td><code>Delivery_Distance_HUB_Km</code></td>
+      <td>Numeric</td>
+      <td>Distance from the primary logistics hub.</td>
+    </tr>
+    <tr>
+      <td><code>kgCO2</code></td>
+      <td>Numeric</td>
+      <td>Estimated carbon footprint in kg of CO2 emitted for the route.</td>
+    </tr>
+    <tr>
+      <td><code>Censorship_Indicator</code></td>
+      <td>Binary</td>
+      <td>Right-censoring indicator (1 = observed, 0 = censored/out of period).</td>
+    </tr>
+    <!-- 7. Target & Outcomes -->
+    <tr>
+      <td rowspan="3"><strong>Target & Outcomes</strong></td>
+      <td><code>Delivery_Status</code></td>
+      <td>String</td>
+      <td>Final delivery outcome (Successful, Failed, Censored).</td>
+    </tr>
+    <tr>
+      <td><code>Failure_Reason</code></td>
+      <td>String</td>
+      <td>Detailed reason in case of failure or operational criticality.</td>
+    </tr>
+    <tr>
+      <td><code>Technical_Installation_Detail</code></td>
+      <td>String</td>
+      <td>Specific technical detail in case of installation issues.</td>
+    </tr>
+  </tbody>
+</table>
+
 ---
 
 ## 🔎 Data Preview
