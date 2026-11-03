@@ -74,7 +74,7 @@ If you use this dataset, R script, or the associated methodology in your researc
 Below is the exhaustive mathematical and operational specification for every feature generated within the dataset.
 
 <details>
-<summary><b>1. Primary Identifiers & Geography </b></summary> 
+<summary><b>1. View Primary Identifiers & Geography </b></summary> 
 
 - **`ID_Delivery_Order`** (*Categorical / String*)  
   Unique 7-digit zero-padded order identifier generated via sampling without replacement.
@@ -96,7 +96,7 @@ Below is the exhaustive mathematical and operational specification for every fea
 </details>
 
 <details>
-<summary><b>2. Temporal & Scheduling Features</b></summary>
+<summary><b>2. View Temporal & Scheduling Features</b></summary>
 
 - **`Order_Creation_Date`** (*Date*)  
   Order placement date sampled uniformly across valid working days (excluding Sundays) in calendar year 2025.
@@ -120,7 +120,7 @@ Below is the exhaustive mathematical and operational specification for every fea
 </details>
 
 <details>
-<summary><b>3. Customer Communication Features</b></summary>
+<summary><b>3. View Customer Communication Features</b></summary>
 
 - **`Contact_Attempts`** (*Discrete Integer*)  
   Number of contact attempts prior to scheduling.
@@ -136,7 +136,7 @@ Below is the exhaustive mathematical and operational specification for every fea
 </details>
 
 <details>
-<summary><b>4. Product, Inventory & Operational Specifications</b></summary>
+<summary><b>4. View Product, Inventory & Operational Specifications</b></summary>
 
 
 - **`Product_Size`** (*Categorical*)  
@@ -159,14 +159,14 @@ Below is the exhaustive mathematical and operational specification for every fea
 </details>
 
 <details>
-<summary><b>5. Environmental & Exogenous Factors</b></summary>
+<summary><b>5. View Environmental & Exogenous Factors</b></summary>
 
 - **`Temperature_C`** (*Continuous Numeric*)  
   Ambient microclimate temperature (°C) synthesized using regional baselines, seasonal monthly offsets, diurnal peak hour adjustments, and Gaussian noise.
 </details>
 
 <details>
-<summary><b>6. Operational Failure & Outcome Mechanisms</b></summary>
+<summary><b>6. View Operational Failure & Outcome Mechanisms</b></summary>
 
 - **`Censorship_Indicator`** (*Binary*)  
   Administrative cutoff indicator for survival/event-history analysis: 0 if the record falls in the last 25% chronologically (Right-Censored), and 1 otherwise (Fully Observed).
@@ -182,7 +182,7 @@ Below is the exhaustive mathematical and operational specification for every fea
 </details>
 
 <details>
-<summary><b>7. Distances, Workload & Carbon Footprint</b></summary>
+<summary><b>7. View Distances, Workload & Carbon Footprint</b></summary>
 
 - **`Delivery_Distance_KM`** (*Continuous Numeric*)  
   Distance from local hub to customer destination, modeled via truncated normal distribution.
