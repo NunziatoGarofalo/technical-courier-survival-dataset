@@ -74,323 +74,370 @@ If you use this dataset, R script, or the associated methodology in your researc
 Below is the exhaustive mathematical and operational specification for every feature generated within the dataset.
 
 <details>
-<summary><b>1. ✨View Primary Identifiers & Geography Features</b></summary> 
-
-- **`ID_Delivery_Order`** (*Categorical / String*)  
-  Unique 7-digit zero-padded order identifier generated via sampling without replacement.
-
-- **`City`** (*Categorical*)  
-  Synthetic municipality name formatted as `<City>`.
-
-- **`Postal_Code`** (*Categorical*)  
-  5-digit synthetic Italian postal code (`CAP`).
-
-- **`Province`** (*Categorical*)  
-  Two-letter Italian provincial code sampled from a master pool of 107 official administrative codes.
-
-- **`Street_Address`** (*Categorical*)  
-  Synthetic street address combining street numbers and major Italian street naming conventions.
-
-- **`ZTL_Restriction`** (*Binary / Categorical*)  
-  Indicates whether the address falls within a Limited Traffic Zone (*ZTL in Italy*).
+<summary><b>1. ✨View Primary Identifiers & Geography Features</b></summary>
+<br>
+<p>Overview of identification and spatial features along with their generative models:</p>
+<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse; width: 100%; table-layout: fixed;">
+  <colgroup>
+    <col style="width: 22%;">
+    <col style="width: 10%;">
+    <col style="width: 33%;">
+    <col style="width: 35%;">
+  </colgroup>
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Type</th>
+      <th style="padding: 6px 8px;">Description</th>
+      <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 4px 8px;"><code>ID_Delivery_Order</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Unique delivery order identifier (zero-padded 7-digit format).</td>
+      <td style="padding: 4px 8px;">Discrete uniform random sampling without replacement from integer space [0, 9999999] combined with zero-padding string formatting: ID = sprintf("%07d", X).</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>City</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Destination city based on the Italian reference pool.</td>
+      <td style="padding: 4px 8px;">Stochastic string concatenation of provincial prefixes with a uniformly sampled integer index ranging from 1 to 500.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Postal_Code</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Associated postal code (5-digit ZIP code).</td>
+      <td style="padding: 4px 8px;">Discrete uniform sampling from the integer range [10000, 99999] mapped to zero-padded 5-digit strings.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Province</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Italian provincial administrative code (e.g., MI, RM, NA).</td>
+      <td style="padding: 4px 8px;">Discrete uniform random sampling with replacement from a master pool of 107 official administrative codes.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Street_Address</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Simulated street address and street name.</td>
+      <td style="padding: 4px 8px;">Cartesian combination of uniform random integers [1, 300] and categorical sampling from a predefined pool of major Italian street names.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>ZTL_Restriction</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Limited Traffic Zone regulatory status (ZTL / Standard Area).</td>
+      <td style="padding: 4px 8px;">Bernoulli trial (Binomial process) with fixed success probability p = 0.35 for restricted regulatory zones and 0.65 for standard areas.</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 <details>
 <summary><b>2. ✨View Temporal & Scheduling Features</b></summary>
-
-- **`Order_Creation_Date`** (*Date*)  
-  Order placement date sampled uniformly across valid working days (excluding Sundays) in calendar year 2025.
-
-- **`Contact_Date`** (*Date*)  
-  Date of customer contact, modeled as a discrete stochastic lag.
-
-- **`Delivery_Date`** (*Date*)  
-  Scheduled delivery date post customer contact.
-
-- **`Day_OfWeek`** (*Categorical*)  
-  Standardized day-of-week string extracted from `Delivery_Date`.
-
-- **`Delivery_Time_Slot`** (*Categorical*)  
-  Scheduled window (`08:00–13:00`, `14:00–18:00` on weekdays; adjusted `08:00–12:00` window for 45% of Saturday deliveries).
-
-- **`Exact_Delivery_Date`** (*Date*)  
-  Exact delivery date execution incorporating operational delays.
-
-- **`Exact_Delivery_Time`** (*Time String*)   Exact arrival time modeled within the time slot duration via a Poisson process.
+<br>
+<p>Overview of temporal tracking and operational scheduling variables:</p>
+<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse; width: 100%; table-layout: fixed;">
+  <colgroup>
+    <col style="width: 22%;">
+    <col style="width: 10%;">
+    <col style="width: 33%;">
+    <col style="width: 35%;">
+  </colgroup>
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Type</th>
+      <th style="padding: 6px 8px;">Description</th>
+      <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Order_Creation_Date</code></td>
+      <td style="padding: 4px 8px;">Date</td>
+      <td style="padding: 4px 8px;">Order creation date (year 2025, excluding Sundays).</td>
+      <td style="padding: 4px 8px;">Uniform discrete temporal sampling across all working days of calendar year 2025 (filtering out day-of-week index corresponding to Sundays).</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Contact_Date</code></td>
+      <td style="padding: 4px 8px;">Date</td>
+      <td style="padding: 4px 8px;">Customer contact date for planning (1-5 working days lag).</td>
+      <td style="padding: 4px 8px;">Stochastic forward lag modeled via uniform discrete sampling on interval [1, 5] days, with weekend adjustment shift to Monday.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Delivery_Date</code></td>
+      <td style="padding: 4px 8px;">Date</td>
+      <td style="padding: 4px 8px;">Scheduled delivery date.</td>
+      <td style="padding: 4px 8px;">Stochastic forward lag modeled via uniform discrete sampling on interval [1, 7] days post-contact, with weekend adjustment shift to Monday.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Exact_Delivery_Date</code></td>
+      <td style="padding: 4px 8px;">Date</td>
+      <td style="padding: 4px 8px;">Actual execution date of delivery (incorporating operational lag).</td>
+      <td style="padding: 4px 8px;">Stochastic perturbation offset sampled from discrete distribution with probabilities P(Δ = 0) = 0.80, P(Δ = 1) = 0.15, P(Δ = 2) = 0.05.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Day_OfWeek</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Day of the week for delivery (standardized in English).</td>
+      <td style="padding: 4px 8px;">Deterministic string extraction from <code>Delivery_Date</code> mapped via an English-Italian localization dictionary.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Delivery_Time_Slot</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Planned delivery time window (handling Saturday constraints).</td>
+      <td style="padding: 4px 8px;">Conditional categorical assignment with specialized weekend scheduling rules (e.g., restricted 45% probability window for Saturday mornings).</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Exact_Delivery_Time</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Exact arrival time estimated via a Poisson process.</td>
+      <td style="padding: 4px 8px;">Homogeneous Poisson process arrival time simulation: offset modeled via t = t_start + ((rpois(lambda = duration / 2)) %% duration).</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 <details>
 <summary><b>3. ✨View Customer Communication Features</b></summary>
-
-- **`Contact_Attempts`** (*Discrete Integer*)  
-  Number of contact attempts prior to scheduling.
-
-- **`Contact_Time_Slot`** (*Categorical*)  
-  Assigned customer contact window (`09:00–13:00`, `15:00–19:00`).
-
-- **`Exact_Contact_Time`** (*Time String*)  
-  Exact time of contact customer according contact time slot scheduled.
-
-- **`Appointment_Confirmation_Received`** (*Categorical*)  
-  Indicates whether the delivery appointment was confirmed (`"YES"`, `"NOT"`, `"NOT_ORGANIZED"`).
+<br>
+<p>Overview of customer interaction and appointment scheduling metrics:</p>
+<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse; width: 100%; table-layout: fixed;">
+  <colgroup>
+    <col style="width: 22%;">
+    <col style="width: 10%;">
+    <col style="width: 33%;">
+    <col style="width: 35%;">
+  </colgroup>
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Type</th>
+      <th style="padding: 6px 8px;">Description</th>
+      <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Contact_Attempts</code></td>
+      <td style="padding: 4px 8px;">Integer</td>
+      <td style="padding: 4px 8px;">Number of contact attempts made prior to confirmation (1-4).</td>
+      <td style="padding: 4px 8px;">Discrete empirical probability distribution: P(X=1) = 0.80, P(X=2) = 0.09, P(X=3) = 0.06, P(X=4) = 0.05.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Contact_Time_Slot</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Scheduled time window for phone contact.</td>
+      <td style="padding: 4px 8px;">Discrete uniform sampling from standard communication time slots (<code>09:00-13:00</code>, <code>15:00-19:00</code>).</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Exact_Contact_Time</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Actual contact time (includes a 20% out-of-slot probability).</td>
+      <td style="padding: 4px 8px;">Mixture model combining uniform slot-bounded Poisson arrival (80% weight) and anomalous out-of-slot hour sampling (20% weight).</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Appointment_Confirmation_Received</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Appointment confirmation indicator (YES / NOT / NOT_ORGANIZED).</td>
+      <td style="padding: 4px 8px;">Conditional state machine based on administrative censoring and failure flags, with Bernoulli trial resolution (P(YES) = 0.85).</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 <details>
 <summary><b>4. ✨View Product, Inventory & Operational Specifications</b></summary>
-
-
-- **`Product_Size`** (*Categorical*)  
-  Package dimension tier (`"Small"`, `"Medium"`, `"Large"`, `"Bulky"`).
-
-- **`Product_Item`** (*Categorical*)  
-  Specific product item description mapped conditionally to `Product_Size`.
-
-- **`Service_Type`** (*Categorical*)  
-  Service level requested: `"Delivery Only"` (35%) vs. `"Delivery & Installation"` (65%).
-
-- **`Personnel_Required`** (*Discrete Integer*)  
-  Delivery crew size required (1 or 2 operators), conditioned on size tier and service complexity.
-
-- **`Product_Code`** (*Categorical*)  
-  SKU identifier sampled from 100 pooled codes per size tier (e.g., `SKU-S-001`).
-
-- **`Stock_Quantity`** (*Discrete Non-negative Integer*)  
-  Dynamic inventory balance per SKU updated chronologically over order creation dates.
+<br>
+<p>Overview of product categories, service requirements, and stock balances:</p>
+<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse; width: 100%; table-layout: fixed;">
+  <colgroup>
+    <col style="width: 22%;">
+    <col style="width: 10%;">
+    <col style="width: 33%;">
+    <col style="width: 35%;">
+  </colgroup>
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Type</th>
+      <th style="padding: 6px 8px;">Description</th>
+      <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Product_Size</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Product dimension tier (Small, Medium, Large, Bulky).</td>
+      <td style="padding: 4px 8px;">Categorical distribution with empirical probability weights: P(Small) = 0.30, P(Med) = 0.40, P(Large) = 0.20, P(Bulky) = 0.10.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Product_Item</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Specific product description mapped to size tier.</td>
+      <td style="padding: 4px 8px;">Stratified conditional categorical sampling mapped strictly to the corresponding <code>Product_Size</code> parent tier.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Service_Type</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Requested service level (Delivery Only vs. Delivery & Installation).</td>
+      <td style="padding: 4px 8px;">Bernoulli trial with success probability p = 0.65 for "Delivery & Installation" and 0.35 for "Delivery Only".</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Personnel_Required</code></td>
+      <td style="padding: 4px 8px;">Integer</td>
+      <td style="padding: 4px 8px;">Required delivery crew size (1 or 2 operators).</td>
+      <td style="padding: 4px 8px;">Deterministic logical rules mapping operational complexity, combining service type and package size tier.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Product_Code</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Stock Keeping Unit (SKU) identifier.</td>
+      <td style="padding: 4px 8px;">Stratified uniform random sampling from 100 pre-generated unique SKU code pools per dimensional tier (e.g., <code>SKU-S-001</code>).</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Stock_Quantity</code></td>
+      <td style="padding: 4px 8px;">Integer</td>
+      <td style="padding: 4px 8px;">Dynamic inventory balance per SKU updated chronologically.</td>
+      <td style="padding: 4px 8px;">Stochastic inventory balance model: chronological depletion (Stock_t = Stock_{t-1} - 1) with Poisson/uniform replenishment triggers (p = 0.08).</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 <details>
 <summary><b>5. ✨View Environmental & Exogenous Factors</b></summary>
-
-- **`Temperature_C`** (*Continuous Numeric*)  
-  Ambient microclimate temperature (°C) synthesized using regional baselines, seasonal monthly offsets, diurnal peak hour adjustments, and Gaussian noise.
+<br>
+<p>Overview of ambient environmental parameters:</p>
+<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse; width: 100%; table-layout: fixed;">
+  <colgroup>
+    <col style="width: 22%;">
+    <col style="width: 10%;">
+    <col style="width: 33%;">
+    <col style="width: 35%;">
+  </colgroup>
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Type</th>
+      <th style="padding: 6px 8px;">Description</th>
+      <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Temperature_C</code></td>
+      <td style="padding: 4px 8px;">Numeric</td>
+      <td style="padding: 4px 8px;">Ambient microclimate temperature (°C).</td>
+      <td style="padding: 4px 8px;">Additive microclimate model: T = Base_Prov + Offset_Month + Adjustment_Hour + ε, where ε ~ Normal(0, 1.2^2).</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 <details>
 <summary><b>6. ✨View Operational Failure & Outcome Mechanisms</b></summary>
-
-- **`Censorship_Indicator`** (*Binary*)  
-  Administrative cutoff indicator for survival/event-history analysis: 0 if the record falls in the last 25% chronologically (Right-Censored), and 1 otherwise (Fully Observed).
-
-- **`Delivery_Status`** (*Categorical*)  
-  Final operational outcome (`"Successful"`, `"Failed"`, `"Censored"`).
-
-- **`Failure_Reason`** (*Categorical*)  
-  Root cause classification assigned dynamically based on thermal stress conditions, stockouts, ZTL permit status, and operational constraints.
-
-- **`Technical_Installation_Detail`** (*Categorical*)  
-  Detailed failure cause for installation issues.
+<br>
+<p>Overview of censoring, operational status, and failure cause mechanics:</p>
+<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse; width: 100%; table-layout: fixed;">
+  <colgroup>
+    <col style="width: 22%;">
+    <col style="width: 10%;">
+    <col style="width: 33%;">
+    <col style="width: 35%;">
+  </colgroup>
+  <thead>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Type</th>
+      <th style="padding: 6px 8px;">Description</th>
+      <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Censorship_Indicator</code></td>
+      <td style="padding: 4px 8px;">Integer</td>
+      <td style="padding: 4px 8px;">Administrative cutoff indicator for survival/event analysis (0/1).</td>
+      <td style="padding: 4px 8px;">Deterministic percentile quantile thresholding based on temporal sorting order (flagging the final chronological 25% as right-censored).</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Delivery_Status</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Final operational outcome (Successful, Failed, Censored).</td>
+      <td style="padding: 4px 8px;">Stochastic state machine governed by inventory levels, right-censoring flags, and thermal-stress failure risk thresholds.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Failure_Reason</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Root cause classification for delivery failures.</td>
+      <td style="padding: 4px 8px;">Conditional decision tree incorporating stockout status, regulatory ZTL constraints, and temperature-dependent failure probabilities.</td>
+    </tr>
+    <tr>
+      <td style="padding: 4px 8px;"><code>Technical_Installation_Detail</code></td>
+      <td style="padding: 4px 8px;">String</td>
+      <td style="padding: 4px 8px;">Detailed failure cause for installation issues.</td>
+      <td style="padding: 4px 8px;">Conditional categorical assignment restricted strictly to records where <code>Failure_Reason == "Technical Installation Issue"</code>.</td>
+    </tr>
+  </tbody>
+</table>
 </details>
 
 <details>
 <summary><b>7. ✨View Distances, Workload & Carbon Footprint</b></summary>
-
-- **`Delivery_Distance_KM`** (*Continuous Numeric*)  
-  Distance from local hub to customer destination, modeled via truncated normal distribution.
-
-- **`Delivery_Distance_HUB_Km`** (*Continuous Numeric*)  
-  Extra distance from central HUB to customer when a faillure recorded.
-
-- **`kgCO2`** (*Continuous Numeric*)  
-  Estimated carbon emissions (kg CO<sub>2</sub>) based on vehicle mileage and return trips due to failed road deliveries (baseline emission factor E = 0.257kg CO<sub>2</sub>\km).
-
-- **`Cumulative_Completed_Deliveries`** (*Discrete Integer*)  
-  Driver workload progression within time slot modeled via a dynamic Poisson.
-
-- **`Prior_Address_Failures`** (*Discrete Non-negative Integer*)  
-  Sequential historical failure count per unique street address up to order creation time.
-</details>
-
-<table>
+<br>
+<p>Overview of spatial distances, driver workload, carbon emission calculations, and historical address counts:</p>
+<table border="1" cellpadding="4" cellspacing="0" style="border-collapse: collapse; width: 100%; table-layout: fixed;">
+  <colgroup>
+    <col style="width: 22%;">
+    <col style="width: 10%;">
+    <col style="width: 33%;">
+    <col style="width: 35%;">
+  </colgroup>
   <thead>
-    <tr>
-      <th>Feature Category</th>
-      <th>Variable Name (R)</th>
-      <th>Type</th>
-      <th>Description</th>
+    <tr style="background-color: #f2f2f2;">
+      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Type</th>
+      <th style="padding: 6px 8px;">Description</th>
+      <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
     </tr>
   </thead>
   <tbody>
-    <!-- 1. Identification -->
     <tr>
-      <td><strong>Identification</strong></td>
-      <td><code>ID_Delivery_Order</code></td>
-      <td>String</td>
-      <td>Unique delivery order identifier (zero-padded 7-digit format).</td>
-    </tr>
-    <!-- 2. Spatial & Geographical -->
-    <tr>
-      <td rowspan="6"><strong>Geographical & Spatial</strong></td>
-      <td><code>City</code></td>
-      <td>String</td>
-      <td>Destination city based on the Italian reference pool.</td>
+      <td style="padding: 4px 8px;"><code>Delivery_Distance_KM</code></td>
+      <td style="padding: 4px 8px;">Numeric</td>
+      <td style="padding: 4px 8px;">Delivery distance in kilometers (1-40 km).</td>
+      <td style="padding: 4px 8px;">Truncated Gaussian distribution: d ~ max(1, min(40, Normal(20, 7^2))), rounded to the nearest integer.</td>
     </tr>
     <tr>
-      <td><code>Postal_Code</code></td>
-      <td>String</td>
-      <td>Associated postal code (5-digit ZIP code).</td>
+      <td style="padding: 4px 8px;"><code>Delivery_Distance_HUB_Km</code></td>
+      <td style="padding: 4px 8px;">Numeric</td>
+      <td style="padding: 4px 8px;">Distance from central hub to customer destination.</td>
+      <td style="padding: 4px 8px;">Truncated Gaussian distribution: d_hub ~ max(1, min(50, Normal(25, 10^2))), mapped via sampled address indices.</td>
     </tr>
     <tr>
-      <td><code>Province</code></td>
-      <td>String</td>
-      <td>Italian provincial administrative code (e.g., MI, RM, NA).</td>
+      <td style="padding: 4px 8px;"><code>kgCO2</code></td>
+      <td style="padding: 4px 8px;">Numeric</td>
+      <td style="padding: 4px 8px;">Estimated carbon emissions (kg CO2) based on mileage.</td>
+      <td style="padding: 4px 8px;">Deterministic physical emission function: E = beta * Distance, with baseline emission factor beta = 0.257 kg CO2/km and return-trip adjustments for road failures.</td>
     </tr>
     <tr>
-      <td><code>Street_Address</code></td>
-      <td>String</td>
-      <td>Simulated street address and street name.</td>
+      <td style="padding: 4px 8px;"><code>Cumulative_Completed_Deliveries</code></td>
+      <td style="padding: 4px 8px;">Integer</td>
+      <td style="padding: 4px 8px;">Driver's dynamic workload (completed deliveries within the slot).</td>
+      <td style="padding: 4px 8px;">Non-homogeneous Poisson/accumulator process conditioned on time-slot progression ratio: lambda(t) = max(0.5, progress * max_deliv).</td>
     </tr>
     <tr>
-      <td><code>ZTL_Restriction</code></td>
-      <td>String</td>
-      <td>Limited Traffic Zone regulatory status (ZTL / Standard Area).</td>
-    </tr>
-    <tr>
-      <td><code>Delivery_Distance_KM</code></td>
-      <td>Numeric</td>
-      <td>Delivery distance in kilometers (1-40 km).</td>
-    </tr>
-    <!-- 3. Temporal -->
-    <tr>
-      <td rowspan="8"><strong>Temporal & Scheduling</strong></td>
-      <td><code>Order_Creation_Date</code></td>
-      <td>Date</td>
-      <td>Order creation date (year 2025, excluding Sundays).</td>
-    </tr>
-    <tr>
-      <td><code>Contact_Date</code></td>
-      <td>Date</td>
-      <td>Customer contact date for planning (1-5 working days lag).</td>
-    </tr>
-    <tr>
-      <td><code>Delivery_Date</code></td>
-      <td>Date</td>
-      <td>Scheduled delivery date.</td>
-    </tr>
-    <tr>
-      <td><code>Exact_Delivery_Date</code></td>
-      <td>Date</td>
-      <td>Actual execution date of delivery (incorporating operational lag).</td>
-    </tr>
-    <tr>
-      <td><code>Day_OfWeek</code></td>
-      <td>String</td>
-      <td>Day of the week for delivery (standardized in English).</td>
-    </tr>
-    <tr>
-      <td><code>Delivery_Time_Slot</code></td>
-      <td>String</td>
-      <td>Planned delivery time window (handling Saturday constraints).</td>
-    </tr>
-    <tr>
-      <td><code>Exact_Delivery_Time</code></td>
-      <td>String</td>
-      <td>Exact arrival time estimated via a Poisson process.</td>
-    </tr>
-    <tr>
-      <td><code>Cumulative_Completed_Deliveries</code></td>
-      <td>Integer</td>
-      <td>Driver's dynamic workload (completed deliveries within the slot).</td>
-    </tr>
-    <!-- 4. Communication -->
-    <tr>
-      <td rowspan="4"><strong>Communication & Appointments</strong></td>
-      <td><code>Contact_Attempts</code></td>
-      <td>Integer</td>
-      <td>Number of contact attempts made prior to confirmation (1-4).</td>
-    </tr>
-    <tr>
-      <td><code>Contact_Time_Slot</code></td>
-      <td>String</td>
-      <td>Scheduled time window for phone contact.</td>
-    </tr>
-    <tr>
-      <td><code>Exact_Contact_Time</code></td>
-      <td>String</td>
-      <td>Actual contact time (includes a 20% out-of-slot probability).</td>
-    </tr>
-    <tr>
-      <td><code>Appointment_Confirmation_Received</code></td>
-      <td>String</td>
-      <td>Appointment confirmation indicator (YES / NOT / NOT_ORGANIZED).</td>
-    </tr>
-    <!-- 5. Product & Resources -->
-    <tr>
-      <td rowspan="6"><strong>Product & Resources</strong></td>
-      <td><code>Product_Size</code></td>
-      <td>String</td>
-      <td>Product dimensional category (Small, Medium, Large, Bulky).</td>
-    </tr>
-    <tr>
-      <td><code>Product_Item</code></td>
-      <td>String</td>
-      <td>Specific item description (e.g., Decoder, Refrigerator, TV).</td>
-    </tr>
-    <tr>
-      <td><code>Service_Type</code></td>
-      <td>String</td>
-      <td>Requested service type (Delivery Only vs. Delivery & Installation).</td>
-    </tr>
-    <tr>
-      <td><code>Personnel_Required</code></td>
-      <td>Integer</td>
-      <td>Operational personnel required based on size and service (1 or 2 staff).</td>
-    </tr>
-    <tr>
-      <td><code>Product_Code</code></td>
-      <td>String</td>
-      <td>Product SKU code stratified by class.</td>
-    </tr>
-    <tr>
-      <td><code>Stock_Quantity</code></td>
-      <td>Integer</td>
-      <td>Warehouse stock state at the time of the order (dynamic simulation).</td>
-    </tr>
-    <!-- 6. Context & History -->
-    <tr>
-      <td rowspan="5"><strong>Context & History</strong></td>
-      <td><code>Prior_Address_Failures</code></td>
-      <td>Integer</td>
-      <td>Historical cumulative feature of previous failures at the same address.</td>
-    </tr>
-    <tr>
-      <td><code>Temperature_C</code></td>
-      <td>Numeric</td>
-      <td>Estimated ambient temperature (°C) based on microclimate and seasonality.</td>
-    </tr>
-    <tr>
-      <td><code>Delivery_Distance_HUB_Km</code></td>
-      <td>Numeric</td>
-      <td>Distance from the primary logistics hub.</td>
-    </tr>
-    <tr>
-      <td><code>kgCO2</code></td>
-      <td>Numeric</td>
-      <td>Estimated carbon footprint in kg of CO2 emitted for the route.</td>
-    </tr>
-    <tr>
-      <td><code>Censorship_Indicator</code></td>
-      <td>Binary</td>
-      <td>Right-censoring indicator (1 = observed, 0 = censored/out of period).</td>
-    </tr>
-    <!-- 7. Target & Outcomes -->
-    <tr>
-      <td rowspan="3"><strong>Target & Outcomes</strong></td>
-      <td><code>Delivery_Status</code></td>
-      <td>String</td>
-      <td>Final delivery outcome (Successful, Failed, Censored).</td>
-    </tr>
-    <tr>
-      <td><code>Failure_Reason</code></td>
-      <td>String</td>
-      <td>Detailed reason in case of failure or operational criticality.</td>
-    </tr>
-    <tr>
-      <td><code>Technical_Installation_Detail</code></td>
-      <td>String</td>
-      <td>Specific technical detail in case of installation issues.</td>
+      <td style="padding: 4px 8px;"><code>Prior_Address_Failures</code></td>
+      <td style="padding: 4px 8px;">Integer</td>
+      <td style="padding: 4px 8px;">Sequential historical failure count per unique street address up to order creation time.</td>
+      <td style="padding: 4px 8px;">Cumulative rolling aggregation function grouped by unique address ID up to order creation timestamp: FailureCount_i = sum(Fail_j for j &lt; i).</td>
     </tr>
   </tbody>
 </table>
+</details>
 
 ---
 
