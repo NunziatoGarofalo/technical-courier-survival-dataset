@@ -74,7 +74,7 @@ If you use this dataset, R script, or the associated methodology in your researc
 Below is the exhaustive mathematical and operational specification for every feature generated within the dataset.
 
 <details>
-<summary><b>1. View Primary Identifiers & Geography </b></summary> 
+<summary><b>1. View Primary Identifiers & Geography Feature</b></summary> 
 
 - **`ID_Delivery_Order`** (*Categorical / String*)  
   Unique 7-digit zero-padded order identifier generated via sampling without replacement.
