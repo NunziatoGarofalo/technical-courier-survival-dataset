@@ -546,6 +546,19 @@ source("01-main.R")
 ```
 ---
 
+### 6. 🔬 Multi-Level Stress-Testing and Sensitivity Analysis
+To rigorously evaluate the resilience, stability, and predictive discrimination of the Telemetry-Enhanced Random Survival Forest (RSF) framework, the repository includes a dedicated multi-level stress-testing pipeline [`src/`](src/). Rather than relying solely on standard out-of-sample validation, this module systematically injects controlled, progressive stochastic perturbations into the logistics ecosystem to simulate extreme real-world operational degradation:
+* **Microclimatic Stress Scaling:** Simulates severe heatwave scenarios by incrementally amplifying ambient temperatures (&Delta;T) across random subsets of delivery orders.
+* **Spatial & Environmental Deterioration:** Scales delivery route detours dynamically, observing how proportional carbon footprint metrics (kgCO2) evolve under routing friction.
+* **Regulatory & Urban Bottlenecks:** Forces operational delivery failures under constrained urban access profiles (e.g., restricted ZTL zones combined with thermal stress thresholds).
+
+Key Objectives of the Sensitivity Analysis: 
+* **Robustness Quantification:** Tracks how the Out-of-Bag (OOB) C-index degrades or holds steady across escalating stress intensity factors (&gamma; &isin; [1.0, 3.0]).
+* **Feature Hierarchy Shifts (VIMP):** Monitors how permutation-based Variable Importance metrics shift dynamically, proving the critical role of real-time telemetry (Temperature_C, kgCO2) during crisis scenarios.
+* **Reproducible Validation:** The summary table reporting the results of the Random Survival Forest model is presented below:
+
+---
+
 ## 📚 References & Dependencies
 
 This project builds upon established statistical and machine learning methodologies for survival analysis, as well as several open-source R and Python packages. 
