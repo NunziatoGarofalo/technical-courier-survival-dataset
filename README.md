@@ -550,7 +550,7 @@ source("01-main.R")
 To rigorously evaluate the resilience, stability, and predictive discrimination of the Telemetry-Enhanced Random Survival Forest (RSF) framework, the repository includes a dedicated multi-level stress-testing pipeline [`src/`](src/). Rather than relying solely on standard out-of-sample validation, this module systematically injects controlled, progressive stochastic perturbations into the logistics ecosystem to simulate extreme real-world operational degradation:
 * **Microclimatic Stress Scaling:** Simulates severe heatwave scenarios by incrementally amplifying ambient temperatures (&Delta;T) across random subsets of delivery orders.
 * **Spatial & Environmental Deterioration:** Scales delivery route detours dynamically, observing how proportional carbon footprint metrics (kgCO2) evolve under routing friction.
-* **Regulatory & Urban Bottlenecks:** Forces operational delivery failures under constrained urban access profiles (e.g., restricted ZTL zones combined with thermal stress thresholds).
+* **Regulatory & Urban Bottlenecks:** Forces operational delivery failures under constrained urban access profiles (e.g., restricted LTZ zones combined with thermal stress thresholds).
 
 Key Objectives of the Sensitivity Analysis: 
 * **Robustness Quantification:** Tracks how the Out-of-Bag (OOB) C-index degrades or holds steady across escalating stress intensity factors (&gamma; &isin; [1.0, 3.0]).
