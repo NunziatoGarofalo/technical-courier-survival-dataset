@@ -553,9 +553,17 @@ To rigorously evaluate the resilience, stability, and predictive discrimination 
 * **Regulatory & Urban Bottlenecks:** Forces operational delivery failures under constrained urban access profiles (e.g., restricted LTZ zones combined with thermal stress thresholds).
 
 Key Objectives of the Sensitivity Analysis: 
-* **Robustness Quantification:** Tracks how the Out-of-Bag (OOB) C-index degrades or holds steady across escalating stress intensity factors (&gamma; &isin; [1, 3]).
+- **Robustness Quantification:** Tracks how the Out-of-Bag (OOB) C-index evolves and holds steady (exhibiting an upward resilience trend) across escalating stress intensity factors (&gamma; &isin; [1, 3]).
 * **Feature Hierarchy Shifts (VIMP):** Monitors how permutation-based Variable Importance metrics shift dynamically, proving the critical role of real-time telemetry (<code>Temperature_C</code>, <code>kgCO2</code>) during crisis scenarios.
 * **Reproducible Validation:** The summary table reporting the results of the Random Survival Forest model is presented below:
+
+| Perturbation Factor (gamma) | OOB C-Index | Top Predictor | Temperature VIMP | CO2 VIMP |
+| :--- | :---: | :---: | :---: | :---: |
+| **1.0** | 0.7145 | Temperature_C | 0.2125 | 0.003193 |
+| **1.5** | 0.7217 | Temperature_C | 0.2217 | 0.003629 |
+| **2.0** | 0.7266 | Temperature_C | 0.2227 | 0.003655 |
+| **2.5** | 0.7307 | Temperature_C | 0.2262 | 0.004007 |
+| **3.0** | 0.7338 | Temperature_C | 0.2247 | 0.004286 |
 
 ---
 
