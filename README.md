@@ -31,7 +31,7 @@ operational inefficiency, elevated costs, and redundant emissions.
 This repository uses a dual-license structure to separate code from datasets:
 
 - **Source Code** (R/Python scripts for data generation and survival analysis): Licensed under the [MIT License](LICENSE).
-- **Dataset** (Synthetic data for reproducibility): Licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) License.
+- **Dataset** (Synthetic data for reproducibility): Licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0) License](https://creativecommons.org/licenses/by/4.0/).
 
 ---
 
