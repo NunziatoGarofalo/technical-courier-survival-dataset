@@ -86,7 +86,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   </colgroup>
   <thead>
     <tr style="background-color: #f2f2f2;">
-      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Variable Name </th>
       <th style="padding: 6px 8px;">Type</th>
       <th style="padding: 6px 8px;">Description</th>
       <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
@@ -146,7 +146,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   </colgroup>
   <thead>
     <tr style="background-color: #f2f2f2;">
-      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Variable Name </th>
       <th style="padding: 6px 8px;">Type</th>
       <th style="padding: 6px 8px;">Description</th>
       <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
@@ -212,7 +212,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   </colgroup>
   <thead>
     <tr style="background-color: #f2f2f2;">
-      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Variable Name </th>
       <th style="padding: 6px 8px;">Type</th>
       <th style="padding: 6px 8px;">Description</th>
       <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
@@ -260,7 +260,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   </colgroup>
   <thead>
     <tr style="background-color: #f2f2f2;">
-      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Variable Name </th>
       <th style="padding: 6px 8px;">Type</th>
       <th style="padding: 6px 8px;">Description</th>
       <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
@@ -320,7 +320,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   </colgroup>
   <thead>
     <tr style="background-color: #f2f2f2;">
-      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Variable Name </th>
       <th style="padding: 6px 8px;">Type</th>
       <th style="padding: 6px 8px;">Description</th>
       <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
@@ -350,7 +350,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   </colgroup>
   <thead>
     <tr style="background-color: #f2f2f2;">
-      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Variable Name </th>
       <th style="padding: 6px 8px;">Type</th>
       <th style="padding: 6px 8px;">Description</th>
       <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
@@ -398,7 +398,7 @@ Below is the exhaustive mathematical and operational specification for every fea
   </colgroup>
   <thead>
     <tr style="background-color: #f2f2f2;">
-      <th style="padding: 6px 8px;">Variable Name (R)</th>
+      <th style="padding: 6px 8px;">Variable Name </th>
       <th style="padding: 6px 8px;">Type</th>
       <th style="padding: 6px 8px;">Description</th>
       <th style="padding: 6px 8px;">Mathematical / Statistical Model (Derivation)</th>
