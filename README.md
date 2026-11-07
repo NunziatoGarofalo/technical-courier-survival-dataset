@@ -7,7 +7,7 @@
 
 # technical-courier-survival-dataset
 
-Official dataset and resources for the paper: *"Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics"*.
+Official dataset and resources for the paper: *"Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics"*; an Original Research Article published by Emerald Publishing: International Journal ....
 
 ![NomeBadge](https://img.shields.io/badge/EmeraldPublishing—DOI-XX.X/-green?)
 
@@ -39,7 +39,7 @@ This repository uses a dual-license structure to separate code from datasets:
 
 If you use this dataset, R script, or the associated methodology in your research, please cite both the paper and the repository:
 
-### 1. Academic Article (IJIEOM / Emerald)
+### 1. Original Research Article (IJIEOM / Emerald)
 > Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *International Journal of Industrial Engineering and Operations Management*, Emerald Publishing.
 ```bibtex
 @article{Garofalo2026Paper,
