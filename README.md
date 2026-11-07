@@ -43,10 +43,8 @@ If you use this dataset, R script, or the associated methodology in your researc
 ### 1. Original Research Article (IJIEOM / Emerald)
 
 > Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *International Journal of Industrial Engineering and Operations Management*, Emerald Publishing.
->
-> ![NomeBadge](https://img.shields.io/badge/EmeraldPublishing—DOI-XX.X/-green?)
 > 
-![NomeBadge](https://img.shields.io/badge/BibTex-references.bib-yellow?logo=LaTex)
+![NomeBadge](https://img.shields.io/badge/BibTex-references.bib-lightgrey?logo=LaTex)
 ```bibtex
 @article{Garofalo2026Paper,
   author       = {Nunziato Garofalo},
@@ -62,11 +60,9 @@ If you use this dataset, R script, or the associated methodology in your researc
 ### 2. Dataset & Software Repository (Zenodo / GitHub)
 
 > Garofalo, N. (2026). *Technical Courier Survival Dataset & Predictive Modeling Framework* (Version 1.0.0) [Data set & Code]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX 
-> Repository source: https://github.com/NunziatoGarofalo/technical-courier-survival-dataset
 >
-> ![NomeBadge](https://img.shields.io/badge/DOI-XX.X/zenodo-blue?)
 > 
-![NomeBadge](https://img.shields.io/badge/BibTex-references.bib-blue?logo=LaTex)
+![NomeBadge](https://img.shields.io/badge/BibTex-references.bib-lightgrey?logo=LaTex)
 ```bibtex
 @misc{Garofalo2026Dataset,
   author       = {Nunziato Garofalo},
