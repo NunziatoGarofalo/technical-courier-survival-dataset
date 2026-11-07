@@ -2,7 +2,7 @@
 [![NomeBadge](https://img.shields.io/badge/DOI-XX.X/zenodo-blue?)](https://orcid.org/0009-0002-2993-6083)
 
 [![NomeBadge](https://img.shields.io/badge/license-MIT-blue?)](https://github.com/NunziatoGarofalo/technical-courier-survival-dataset/blob/main/LICENSE) [![NomeBadge](https://img.shields.io/badge/license—DATA-CC%20BY%204.0-blue?)](https://github.com/NunziatoGarofalo/technical-courier-survival-dataset/blob/main/LICENSE-DATA)
-![NomeBadge](https://img.shields.io/badge/github-repo-blue?logo=github) ![NomeBadge](https://img.shields.io/badge/script-100%25-blue?logo=R)
+[![NomeBadge](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/NunziatoGarofalo/technical-courier-survival-dataset/blob/main/README.md) ![NomeBadge](https://img.shields.io/badge/script-100%25-blue?logo=R)
 
 
 
