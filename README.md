@@ -553,7 +553,7 @@ source("01-main.R")
 ```
 ---
 
-### 6. 🔬 Multi-Level Stress-Testing and Sensitivity Analysis
+## 🔬 Multi-Level Stress-Testing and Sensitivity Analysis
 To rigorously evaluate the resilience, stability, and predictive discrimination of the Telemetry-Enhanced Random Survival Forest (RSF) framework, the repository includes a dedicated multi-level stress-testing pipeline (see [`src/05-multy_level_stress_testing_and_sensitivity_analysis.R`](src/05-multy_level_stress_testing_and_sensitivity_analysis.R)). Rather than relying solely on standard out-of-sample validation, this module systematically injects controlled, progressive stochastic perturbations into the logistics ecosystem to simulate extreme real-world operational degradation:
 * **Microclimatic Stress Scaling:** Simulates severe heatwave scenarios by incrementally amplifying ambient temperatures (&Delta;T) across random subsets of delivery orders.
 * **Spatial & Environmental Deterioration:** Scales delivery route detours dynamically, observing how proportional carbon footprint metrics (kgCO2) evolve under routing friction.
@@ -571,6 +571,22 @@ Key Objectives of the Sensitivity Analysis:
 | **2.0** | 0.7266 | Temperature_C | 0.2227 | 0.003655 |
 | **2.5** | 0.7307 | Temperature_C | 0.2262 | 0.004007 |
 | **3.0** | 0.7338 | Temperature_C | 0.2247 | 0.004286 |
+
+---
+
+## 🔬 Predictive &amp; Sustainability Pipeline for Technical Couriers
+
+This script implements a real-time predictive monitoring system for technical deliveries, combining IoT sensors with human and structural factors to prevent delivery failures before vehicles arrive on-site, while quantifying CO<sub>2</sub> savings according to the **ISO 14083:2023** standard.
+
+### 1. 📡 Monitored Variables & Real-Time Predictive Analysis
+* **IoT & Environmental Telemetry:** Fleet state-of-charge (`battery_level_avg`), urban traffic congestion (`traffic_index_avg`), and ambient temperature (`Temperature_C`).
+* **Human & Coordination Factors:** Pre-appointment plant readiness (`pre_check_score`) and dynamic disruption index for customer absences or last-minute changes (`dynamic_disruption_index`).
+* **Digital Twin Simulation (t = 2, 4, 6 hours):** A **Random Survival Forest (RSF)** processes live streams at discrete intervals to compute dynamic risk scores, classifying orders into 🟢 **SAFE**, 🟡 **WARNING**, and 🔴 **CRITICAL** (triggering proactive dispatcher rerouting).
+
+### 2. 🌱 CO<sub>2</sub> Savings Assessment (ISO 14083:2023)
+Compares two operational scenarios across Diesel (0.257kgCO<sub>2</sub>\km) and Electric vans:
+1. **Baseline Scenario (Reactive):** Failures are discovered post-facto upon hub return, incurring double transit routes and high emissions.
+2. **Proactive Scenario (Predictive):** 🔴 **CRITICAL** orders are intercepted mid-route, avoiding wasted trips and cutting well-to-wheel greenhouse gas emissions.
 
 ---
 
