@@ -580,28 +580,28 @@ Key Objectives of the Sensitivity Analysis:
 
 ## 🔬 Predictive & Sustainability Pipeline for Technical Couriers
 
-This module implements a real-time predictive monitoring system for last-mile technical logistics, combining IoT telemetry with human and structural factors to forecast delivery failures before vehicles arrive on-site. Net environmental impacts are quantified under the **ISO 14083:2023** standard for greenhouse gas accounting. (see [`src/06-Real_time_dynamic_survival_streaming_and_CO2_savings_assessment.R`](src/06-Real_time_dynamic_survival_streaming_and_CO2_savings_assessment.R))
+This module implements a real-time predictive monitoring system for last-mile technical logistics, combining IoT telemetry with human and structural factors to forecast delivery failures before vehicles arrive on-site. Net environmental impacts are quantified under the **ISO 14083:2023** standard for greenhouse gas accounting across a live testing cohort of **100 active delivery orders** (see [`src/06-Real_time_dynamic_survival_streaming_and_CO2_savings_assessment.R`](src/06-Real_time_dynamic_survival_streaming_and_CO2_savings_assessment.R)).
 
 ### 1. 📡 Real-Time Telemetry & Traffic-Light Tiering (Digital Twin)
-* **IoT & Telematics:** Real-time monitoring of fleet state-of-charge (`battery_level_avg`), urban congestion (`traffic_index_avg`), and thermal conditions (`Temperature_C`).
-* **Human Factors:** Pre-appointment technical readiness (`pre_check_score`) and dynamic customer absence/revocation indices (`dynamic_disruption_index`).
-* **Dynamic Risk Stratification (t = 2, 4, 6 hours):** A non-parametric **Random Survival Forest (RSF)** processes live operational streams at discrete intervals, stratifying orders into actionable dispatcher tiers:
+- **IoT & Telematics:** Real-time monitoring of fleet state-of-charge (`battery_level_avg`), urban congestion (`traffic_index_avg`), and thermal conditions (`Temperature_C`).
+- **Human Factors:** Pre-appointment technical readiness (`pre_check_score`) and dynamic customer absence/revocation indices (`dynamic_disruption_index`).
+- **Dynamic Risk Stratification (t = 2, 4, 6 hours):** A non-parametric **Random Survival Forest (RSF)** processes live operational streams at discrete intervals across the **100 tested delivery cohorts**, stratifying orders into actionable dispatcher tiers:
   * 🟢 **SAFE:** Normal execution flow.
   * 🟡 **WARNING:** Moderate anomalies detected; monitored closely.
   * 🔴 **CRITICAL:** High probability of disruption; triggers immediate mid-route proactive intervention.
 
- A dataset example results:
+**Live Streaming Simulation Output (Sample Snapshot of the 100 Monitored Orders):**
 
- | order_id|vehicle_type | Delivery_Distance_KM| battery_level_avg| pre_check_score| predicted_risk_score|risk_level |
+| order_id | vehicle_type | Delivery_Distance_KM | battery_level_avg | pre_check_score | predicted_risk_score | risk_level |
 |--------:|:------------|--------------------:|-----------------:|---------------:|--------------------:|:----------|
-|        1|Electric_Van |                   25|            41.990|           0.801|                0.284|SAFE 🟢    |
-|        2|Diesel_Van   |                   24|            92.260|           0.991|                0.253|SAFE 🟢    |
-|        3|Electric_Van |                   12|            82.478|           0.818|                0.285|SAFE 🟢    |
-|        4|Diesel_Van   |                   16|            72.241|           0.506|                0.474|WARNING 🟡 |
-|        5|Diesel_Van   |                    4|            28.140|           0.499|                0.285|SAFE 🟢    |
+|       1 | Electric_Van |                  25 |           41.990 |          0.801 |               0.284 | SAFE 🟢    |
+|       2 | Diesel_Van   |                  24 |           92.260 |          0.991 |               0.253 | SAFE 🟢    |
+|       3 | Electric_Van |                  12 |           82.478 |          0.818 |               0.285 | SAFE 🟢    |
+|       4 | Diesel_Van   |                  16 |           72.241 |          0.506 |               0.474 | WARNING 🟡 |
+|       5 | Diesel_Van   |                   4 |           28.140 |          0.499 |               0.285 | SAFE 🟢    |
 
 ### 2. 🌱 ISO 14083:2023 Comparative Emissions Assessment
-The pipeline measures environmental efficiency by contrasting an unmonitored reactive workflow against our proactive predictive intervention across diesel (257.0 gCO<sub>2</sub>/km) and electric (25.4 gCO<sub>2</sub>/km) vans.
+The pipeline measures environmental efficiency by contrasting an unmonitored reactive workflow against our proactive predictive intervention across diesel (257.0 gCO<sub>2</sub>/km) and electric (25.4 gCO<sub>2</sub>/km) vans over the evaluated **100-order streaming cohort**.
 
 | Environmental & Operational KPI | Reactive Baseline (Unmonitored) | Proactive Pipeline (RSF-Driven) | Net Improvement / Savings |
 | :--- | :--- | :--- | :--- |
@@ -609,6 +609,7 @@ The pipeline measures environmental efficiency by contrasting an unmonitored rea
 | **Critical Failures Intercepted** | `0 / 100` (Post-facto discovery) | `25 / 100` (Mid-route capture) | **Proactive Mitigation** |
 | **Average Emission per Order** | `11.40 kg CO2e` | `2.74 kg CO2e` | **`8.66 kg CO2e saved/order`** |
 | **Avoided Return Trips** | `100%` of failures forced a return | `0%` for intercepted criticals | **Zero Wasted Transit Overhead** |
+
 ---
 
 ## 📚 References & Dependencies
