@@ -590,16 +590,25 @@ This module implements a real-time predictive monitoring system for last-mile te
   * 🟡 **WARNING:** Moderate anomalies detected; monitored closely.
   * 🔴 **CRITICAL:** High probability of disruption; triggers immediate mid-route proactive intervention.
 
+ A dataset example results:
+
+ | order_id|vehicle_type | Delivery_Distance_KM| battery_level_avg| pre_check_score| predicted_risk_score|risk_level |
+|--------:|:------------|--------------------:|-----------------:|---------------:|--------------------:|:----------|
+|        1|Electric_Van |                   25|            41.990|           0.801|                0.284|SAFE 🟢    |
+|        2|Diesel_Van   |                   24|            92.260|           0.991|                0.253|SAFE 🟢    |
+|        3|Electric_Van |                   12|            82.478|           0.818|                0.285|SAFE 🟢    |
+|        4|Diesel_Van   |                   16|            72.241|           0.506|                0.474|WARNING 🟡 |
+|        5|Diesel_Van   |                    4|            28.140|           0.499|                0.285|SAFE 🟢    |
+
 ### 2. 🌱 ISO 14083:2023 Comparative Emissions Assessment
 The pipeline measures environmental efficiency by contrasting an unmonitored reactive workflow against our proactive predictive intervention across diesel (257.0 gCO<sub>2</sub>/km) and electric (25.4 gCO<sub>2</sub>/km) vans.
 
 | Environmental & Operational KPI | Reactive Baseline (Unmonitored) | Proactive Pipeline (RSF-Driven) | Net Improvement / Savings |
 | :--- | :--- | :--- | :--- |
-| **Total $\text{CO}_2\text{e}$ Emissions** | `[es. 420.50 kg]` | `[es. 115.20 kg]` | **`▼ 72.6% (305.30 kg saved)`** |
-| **Critical Failures Intercepted** | `0 / 100` (Post-facto discovery) | `[es. 25 / 100]` (Mid-route capture) | **Proactive Mitigation** |
-| **Average Emission per Order** | `[es. 4.20 kg CO2e]` | `[es. 1.15 kg CO2e]` | **`3.05 kg CO2e saved/order`** |
+| **Total $\text{CO}_2\text{e}$ Emissions** | `1140.41 kg` | `274.27 kg` | **`▼ 76.0% (866.14 kg saved)`** |
+| **Critical Failures Intercepted** | `0 / 100` (Post-facto discovery) | `25 / 100` (Mid-route capture) | **Proactive Mitigation** |
+| **Average Emission per Order** | `11.40 kg CO2e` | `2.74 kg CO2e` | **`8.66 kg CO2e saved/order`** |
 | **Avoided Return Trips** | `100%` of failures forced a return | `0%` for intercepted criticals | **Zero Wasted Transit Overhead** |
-
 ---
 
 ## 📚 References & Dependencies
