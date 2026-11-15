@@ -9,7 +9,7 @@
 
 # technical-courier-survival-dataset
 
-Official dataset and resources for the paper: "Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics". *International Journal of*, Emerald Publishing.
+Official dataset and resources for the paper: "Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics". *Journal of Modelling in Management*, Emerald Publishing.
 
 **Author:** Nunziato Garofalo (*Independent Researcher*), Milan, Italy.
 
