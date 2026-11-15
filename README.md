@@ -574,19 +574,27 @@ Key Objectives of the Sensitivity Analysis:
 
 ---
 
-## 🔬 Predictive &amp; Sustainability Pipeline for Technical Couriers
+## 🔬 Predictive & Sustainability Pipeline for Technical Couriers
 
-This script implements a real-time predictive monitoring system for technical deliveries, combining IoT sensors with human and structural factors to prevent delivery failures before vehicles arrive on-site, while quantifying CO<sub>2</sub> savings according to the **ISO 14083:2023** standard.
+This module implements a real-time predictive monitoring system for last-mile technical logistics, combining IoT telemetry with human and structural factors to forecast delivery failures before vehicles arrive on-site. Net environmental impacts are quantified under the **ISO 14083:2023** standard for greenhouse gas accounting.
 
-### 1. 📡 Monitored Variables & Real-Time Predictive Analysis
-* **IoT & Environmental Telemetry:** Fleet state-of-charge (`battery_level_avg`), urban traffic congestion (`traffic_index_avg`), and ambient temperature (`Temperature_C`).
-* **Human & Coordination Factors:** Pre-appointment plant readiness (`pre_check_score`) and dynamic disruption index for customer absences or last-minute changes (`dynamic_disruption_index`).
-* **Digital Twin Simulation (t = 2, 4, 6 hours):** A **Random Survival Forest (RSF)** processes live streams at discrete intervals to compute dynamic risk scores, classifying orders into 🟢 **SAFE**, 🟡 **WARNING**, and 🔴 **CRITICAL** (triggering proactive dispatcher rerouting).
+### 1. 📡 Real-Time Telemetry & Traffic-Light Tiering (Digital Twin)
+* **IoT & Telematics:** Real-time monitoring of fleet state-of-charge (`battery_level_avg`), urban congestion (`traffic_index_avg`), and thermal conditions (`Temperature_C`).
+* **Human Factors:** Pre-appointment technical readiness (`pre_check_score`) and dynamic customer absence/revocation indices (`dynamic_disruption_index`).
+* **Dynamic Risk Stratification (t = 2, 4, 6 hours):** A non-parametric **Random Survival Forest (RSF)** processes live operational streams at discrete intervals, stratifying orders into actionable dispatcher tiers:
+  * 🟢 **SAFE:** Normal execution flow.
+  * 🟡 **WARNING:** Moderate anomalies detected; monitored closely.
+  * 🔴 **CRITICAL:** High probability of disruption; triggers immediate mid-route proactive intervention.
 
-### 2. 🌱 CO<sub>2</sub> Savings Assessment (ISO 14083:2023)
-Compares two operational scenarios across Diesel (0.257kgCO<sub>2</sub>\km) and Electric vans:
-1. **Baseline Scenario (Reactive):** Failures are discovered post-facto upon hub return, incurring double transit routes and high emissions.
-2. **Proactive Scenario (Predictive):** 🔴 **CRITICAL** orders are intercepted mid-route, avoiding wasted trips and cutting well-to-wheel greenhouse gas emissions.
+### 2. 🌱 ISO 14083:2023 Comparative Emissions Assessment
+The pipeline measures environmental efficiency by contrasting an unmonitored reactive workflow against our proactive predictive intervention across diesel (257.0 gCO<sub>2</sub>/km) and electric (25.4 gCO<sub>2</sub>/km) vans.
+
+| Environmental & Operational KPI | Reactive Baseline (Unmonitored) | Proactive Pipeline (RSF-Driven) | Net Improvement / Savings |
+| :--- | :--- | :--- | :--- |
+| **Total $\text{CO}_2\text{e}$ Emissions** | `[es. 420.50 kg]` | `[es. 115.20 kg]` | **`▼ 72.6% (305.30 kg saved)`** |
+| **Critical Failures Intercepted** | `0 / 100` (Post-facto discovery) | `[es. 25 / 100]` (Mid-route capture) | **Proactive Mitigation** |
+| **Average Emission per Order** | `[es. 4.20 kg CO2e]` | `[es. 1.15 kg CO2e]` | **`3.05 kg CO2e saved/order`** |
+| **Avoided Return Trips** | `100%` of failures forced a return | `0%` for intercepted criticals | **Zero Wasted Transit Overhead** |
 
 ---
 
