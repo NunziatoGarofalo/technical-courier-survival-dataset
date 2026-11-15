@@ -576,7 +576,7 @@ Key Objectives of the Sensitivity Analysis:
 
 ## 🔬 Predictive & Sustainability Pipeline for Technical Couriers
 
-This module implements a real-time predictive monitoring system for last-mile technical logistics, combining IoT telemetry with human and structural factors to forecast delivery failures before vehicles arrive on-site. Net environmental impacts are quantified under the **ISO 14083:2023** standard for greenhouse gas accounting.
+This module implements a real-time predictive monitoring system for last-mile technical logistics, combining IoT telemetry with human and structural factors to forecast delivery failures before vehicles arrive on-site. Net environmental impacts are quantified under the **ISO 14083:2023** standard for greenhouse gas accounting. (see [`src/06-Real_time_dynamic_survival_streaming_and_CO2_savings_assessment.R`](src/06-Real_time_dynamic_survival_streaming_and_CO2_savings_assessment.R))
 
 ### 1. 📡 Real-Time Telemetry & Traffic-Light Tiering (Digital Twin)
 * **IoT & Telematics:** Real-time monitoring of fleet state-of-charge (`battery_level_avg`), urban congestion (`traffic_index_avg`), and thermal conditions (`Temperature_C`).
