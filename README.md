@@ -53,7 +53,7 @@ If you use this dataset, R script, or the associated methodology in your researc
 @article{Garofalo2026Paper,
   author       = {Nunziato Garofalo},
   title        = {Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics},
-  journal      = {International Journal of Industrial Engineering and Operations Management},
+  journal      = {Journal of Modelling in Management},
   publisher    = {Emerald Publishing},
   year         = {2026},
   doi          = {10.1108/IJIEOM-XX-2026-XXXX}
