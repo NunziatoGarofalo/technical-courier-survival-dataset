@@ -74,7 +74,7 @@ If you use this dataset, R script, or the associated methodology in your researc
   publisher    = {Zenodo},
   version      = {1.0.0},
   doi          = {10.5281/zenodo.XXXXXXX},
-  url          = {[https://doi.org/10.5281/zenodo.XXXXXXX](https://doi.org/10.5281/zenodo.XXXXXXX)}
+  url          = {[https://doi.org/10.5281/zenodo.24372492]((https://doi.org/10.5281/zenodo.24372492))}
 }
 ```
 
