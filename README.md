@@ -62,7 +62,7 @@ If you use this dataset, R script, or the associated methodology in your researc
 
 ### 2. Dataset & Software Repository (Zenodo / GitHub)
 
-> Garofalo, N. (2026). *Technical Courier Survival Dataset & Predictive Modeling Framework* (Version 1.0.0) [Data set & Code]. Zenodo. https://doi.org/10.5281/zenodo.XXXXXXX 
+> Garofalo, N. (2026). *Technical Courier Survival Dataset & Predictive Modeling Framework* (Version 1.0.0) [Data set & Code]. Zenodo. (https://doi.org/10.5281/zenodo.24372492) 
 >
 > 
 ![NomeBadge](https://img.shields.io/badge/BibTex-references.bib-lightgrey?logo=LaTex)
