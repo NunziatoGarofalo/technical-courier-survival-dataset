@@ -9,12 +9,12 @@
 
 # technical-courier-survival-dataset
 
-Official dataset and resources for the paper: "Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics". *Journal of Modelling in Management*, Emerald Publishing.
+Official dataset and resources for the paper: "Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics".
 
 **Author:** Nunziato Garofalo (*Independent Researcher*), Milan, Italy.
 
 [![NomeBadge](https://img.shields.io/badge/ORCID%20ID-0009–0002–2993–6083-green?logo=ORCID)](https://orcid.org/0009-0002-2993-6083)
-![NomeBadge](https://img.shields.io/badge/EmeraldPublishing—DOI-XX.X/-green?)
+![NomeBadge](https://img.shields.io/badge/DOI-XX.X/-green?)
 
 ## 🔭 Overview
 
@@ -46,15 +46,14 @@ If you use this dataset, R script, or the associated methodology in your researc
 
 ### 1. Original Research Article (IJIEOM / Emerald)
 
-> Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *International Journal of Industrial Engineering and Operations Management*, Emerald Publishing.
+> Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *Zenodo*
 > 
 ![NomeBadge](https://img.shields.io/badge/BibTex-references.bib-lightgrey?logo=LaTex)
 ```bibtex
 @article{Garofalo2026Paper,
   author       = {Nunziato Garofalo},
   title        = {Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics},
-  journal      = {Journal of Modelling in Management},
-  publisher    = {Emerald Publishing},
+  publisher    = {Zenodo},
   year         = {2026},
   doi          = {10.1108/IJIEOM-XX-2026-XXXX}
 }
