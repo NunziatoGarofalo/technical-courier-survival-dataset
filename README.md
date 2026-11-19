@@ -14,7 +14,7 @@ Official dataset and resources for the paper: "Predicting Delivery Failures in T
 **Author:** Nunziato Garofalo (*Independent Researcher*), Milan, Italy.
 
 [![NomeBadge](https://img.shields.io/badge/ORCID%20ID-0009–0002–2993–6083-green?logo=ORCID)](https://orcid.org/0009-0002-2993-6083)
-[![NomeBadge](https://img.shields.io/badge/DOI-10.5281/zenodo.24375729/-green?)](https://doi.org/10.5281/zenodo.24375729)
+[![NomeBadge](https://img.shields.io/badge/DOI-10.5281/zenodo.24375729-green?)](https://doi.org/10.5281/zenodo.24375729)
 
 ## 🔭 Overview
 
@@ -74,7 +74,7 @@ If you use this dataset, R script, or the associated methodology in your researc
   publisher    = {Zenodo},
   version      = {1.0.0},
   doi          = {https://doi.org/10.5281/zenodo.24372492},
-  url          = {[https://doi.org/10.5281/zenodo.24372492]((https://doi.org/10.5281/zenodo.24372492)}
+  url          = {[https://doi.org/10.5281/zenodo.24372492](https://doi.org/10.5281/zenodo.24372492)}
 }
 ```
 
