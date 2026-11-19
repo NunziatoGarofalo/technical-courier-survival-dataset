@@ -14,7 +14,7 @@ Official dataset and resources for the paper: "Predicting Delivery Failures in T
 **Author:** Nunziato Garofalo (*Independent Researcher*), Milan, Italy.
 
 [![NomeBadge](https://img.shields.io/badge/ORCID%20ID-0009–0002–2993–6083-green?logo=ORCID)](https://orcid.org/0009-0002-2993-6083)
-![NomeBadge](https://img.shields.io/badge/DOI-XX.X/-green?)
+[![NomeBadge](https://img.shields.io/badge/DOI-10.5281/zenodo.24372491/-green?)](https://doi.org/10.5281/zenodo.24372491)
 
 ## 🔭 Overview
 
@@ -55,7 +55,7 @@ If you use this dataset, R script, or the associated methodology in your researc
   title        = {Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics},
   publisher    = {Zenodo},
   year         = {2026},
-  doi          = {10.1108/IJIEOM-XX-2026-XXXX}
+  doi          = {[10.5281/zenodo.24372491](https://doi.org/10.5281/zenodo.24372491)}
 }
 ```
 ---
