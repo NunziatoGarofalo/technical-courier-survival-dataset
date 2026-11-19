@@ -55,7 +55,7 @@ If you use this dataset, R script, or the associated methodology in your researc
   title        = {Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics},
   publisher    = {Zenodo},
   year         = {2026},
-  doi          = {[https://doi.org/10.5281/zenodo.24372491](https://doi.org/10.5281/zenodo.24375729))}
+  doi          = {[https://doi.org/10.5281/zenodo.24372491](https://doi.org/10.5281/zenodo.24375729)}
 }
 ```
 ---
