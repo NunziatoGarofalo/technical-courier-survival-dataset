@@ -44,7 +44,7 @@ This repository uses a dual-license structure to separate code from datasets:
 
 If you use this dataset, R script, or the associated methodology in your research, please cite both the paper and the repository:
 
-### 1. Original Research Article (IJIEOM / Emerald)
+### 1. Original Research Article (Zenodo)
 
 > Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *Zenodo*
 > 
