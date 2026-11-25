@@ -13,6 +13,7 @@ This project relies on open-source software libraries and established statistica
 * **Elastic Net**: Zou, H., & Hastie, T. (2005). Regularization and Variable Selection via the Elastic Net. *Journal of the Royal Statistical Society: Series B*, 67(2), 301–320.
 * **Coordinate Descent for Cox Models**: Simon, N., Friedman, J., Hastie, T., & Tibshirani, R. (2011). Regularization Paths for Cox's Proportional Hazards Model via Coordinate Descent. *Journal of Statistical Software*, 39(5), 1–13.
 * **Group Penalties / OSCAR**: Bondell, H. D., & Reich, B. J. (2008). Simultaneous Regression Shrinkage, Variable Selection, and Supervision of Grouping via ELASTIC NET with a Joint Penalty / OSCAR. *Biometrics*, 64(1), 115–123.
+* **Survival Analysis Methods**: Wang, P., Y. Li, and C. K. Reddy (2019). “Machine Learning for Survival Analysis: A Survey”. In: ACM Comput. Surv. Vol. 51 No. 6. issn: 0360-0300. doi: 10.1145/3214306.
 
 ---
 
