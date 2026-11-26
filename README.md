@@ -1,5 +1,5 @@
 [![NomeBadge](https://img.shields.io/badge/github-repo-blue?logo=github)](https://github.com/NunziatoGarofalo/technical-courier-survival-dataset/blob/main/README.md)
-[![DOI](https://zenodo.org/badge/DOI/.svg)](https://doi.org)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24372491.svg)](https://doi.org/10.5281/zenodo.24372491)
 [![NomeBadge](https://img.shields.io/badge/license—DATA-CC%20BY%204.0-blue?)](https://github.com/NunziatoGarofalo/technical-courier-survival-dataset/blob/main/LICENSE-DATA)
 [![NomeBadge](https://img.shields.io/badge/license-MIT-blue?)](https://github.com/NunziatoGarofalo/technical-courier-survival-dataset/blob/main/LICENSE)
 ![NomeBadge](https://img.shields.io/badge/script-100%25-blue?logo=R)
@@ -45,7 +45,7 @@ If you use this dataset, R script, or the associated methodology in your researc
 
 ### 1. Original Research Article (Zenodo)
 
-> Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *Zenodo*
+> Garofalo, N. (2026). Predicting Delivery Failures in Technical Courier Services: A Survival Learning Approach for Sustainable Last-Mile Logistics. *Zenodo*. (https://doi.org/10.5281/zenodo.24375729)
 > 
 ![NomeBadge](https://img.shields.io/badge/BibTex-references.bib-lightgrey?logo=LaTex)
 ```bibtex
@@ -61,7 +61,7 @@ If you use this dataset, R script, or the associated methodology in your researc
 
 ### 2. Dataset & Software Repository (Zenodo / GitHub)
 
-> Garofalo, N. (2026). *Technical Courier Survival Dataset & Predictive Modeling Framework* (V1.1.1) [Data set & Code]. Zenodo. (https://doi.org)
+> Garofalo, N. (2026). *Technical Courier Survival Dataset & Predictive Modeling Framework* (V1.1.1) [Data set & Code]. *Zenodo*. (https://doi.org/10.5281/zenodo.24372491)
 >
 > 
 ![NomeBadge](https://img.shields.io/badge/BibTex-references.bib-lightgrey?logo=LaTex)
@@ -72,12 +72,12 @@ If you use this dataset, R script, or the associated methodology in your researc
   year         = {2026},
   publisher    = {Zenodo},
   version      = {v1.1.1},
-  doi          = {},
-  url          = {https://doi.org/}
+  doi          = {10.5281/zenodo.24372491},
+  url          = {https://doi.org/10.5281/zenodo.24372491}
 }
 ```
-
 ---
+
 ## 📊 Dataset & Variable Description
 
 Below is the exhaustive mathematical and operational specification for every feature generated within the dataset.
